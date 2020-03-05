@@ -124,3 +124,7 @@
 ### Association
 - belongs_to :item
 - belongs_to :category
+
+
+## ER図
+https://gyazo.com/70afdad1b51626399ae2a785962ed363
