@@ -47,8 +47,7 @@
 - has_many :pictures
 - has_many :categories_items
 - has_many :categories, through: :categories_items
-- has_many :brands_items
-- has_many :brands, through: :brands_items
+- belongs_to :brand
 
 
 ## goodテーブル
@@ -90,19 +89,7 @@
 |name|string|null: false|
 
 ### Association
-- has_many :brands_items
-- has_many :items, through: :brands_items
-
-
-## brand_itemテーブル
-|Column|Type|Options|
-|------|----|-------|
-|item_id|integer|foreign_key: true|
-|brand_id|integer|foreign_key: true|
-
-### Association
-- belongs_to :item
-- belongs_to :brand
+- has_many :items
 
 
 ## categoryテーブル
