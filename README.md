@@ -38,6 +38,7 @@
 |date|integer|null: false|
 |seller_id|integer|foreign_key: true|
 |buyer_id|integer|foreign_key: true|
+|brand_id|integer|foreign_key: true|
 
 ### Association
 - belongs_to :seller, foreign_key: "seller_id", class_name: "User"
