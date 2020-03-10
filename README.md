@@ -11,11 +11,6 @@
 |kana-familyname|string|null: false|
 |kana-name|string|null: false|
 |birthday|date|null: false|
-|postalcode|integer|null: false|
-|prefecture|string|null: false|
-|city|string|null: false|
-|address|string|null: false|
-|apartment|string|null: false|
 
 ### Association
 - has_many :bought_items, foreign_key: "buyer_id", class_name: "Item"
@@ -23,6 +18,25 @@
 - has_many :sold_items, -> { where("buyer_id is not NULL") }, foreign_key: "seller_id", class_name: "Item"
 - has_many :goods
 - has_many :commnets
+- has_one :address
+
+
+# addressテーブル
+|Column|Type|Options|
+|------|----|-------|
+|kanzi-familyname|string|null: false|
+|kanzi-name|string|null: false|
+|kana-familyname|string|null: false|
+|kana-name|string|null: false|
+|postalcode|integer|null: false|
+|prefecture|string|null: false|
+|city|string|null: false|
+|address|string|null: false|
+|apartment|string|
+|cellphone|integer|
+
+### Association
+- belongs_to :user, optional: true
 
 
 ## itemテーブル
