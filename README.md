@@ -13,12 +13,13 @@
 |birthday|date|null: false|
 
 ### Association
+- has_one :address
+- has_many :credits
 - has_many :bought_items, foreign_key: "buyer_id", class_name: "Item"
 - has_many :selling_items, -> { where("buyer_id is NULL") }, foreign_key: "seller_id", class_name: "Item"
 - has_many :sold_items, -> { where("buyer_id is not NULL") }, foreign_key: "seller_id", class_name: "Item"
 - has_many :goods
 - has_many :commnets
-- has_one :address
 
 
 # addressテーブル
@@ -34,9 +35,22 @@
 |address|string|null: false|
 |apartment|string|
 |cellphone|integer|
+|user_id|integer|foreign_key: true|
 
 ### Association
 - belongs_to :user, optional: true
+
+
+# creditテーブル
+|Column|Type|Options|
+|------|----|-------|
+|number|integer|null: false|
+|expiration-date|date|null: false|
+|security-code|integer|null: false|
+|user_id|integer|foreign_key: true|
+
+### Association
+- belongs_to :user
 
 
 ## itemテーブル
