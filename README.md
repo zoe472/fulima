@@ -25,10 +25,10 @@
 # addressテーブル
 |Column|Type|Options|
 |------|----|-------|
-|kanzi-familyname|string|null: false|
-|kanzi-name|string|null: false|
-|kana-familyname|string|null: false|
-|kana-name|string|null: false|
+|familyname|string|null: false|
+|name|string|null: false|
+|kana_familyname|string|null: false|
+|kana_name|string|null: false|
 |postalcode|integer|null: false|
 |prefecture|string|null: false|
 |city|string|null: false|
