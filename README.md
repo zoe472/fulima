@@ -6,10 +6,10 @@
 |nickname|string|null: false|
 |email|string|null: false, unique: true|
 |password|string|null: false|
-|kanzi-familyname|string|null: false|
-|kanzi-name|string|null: false|
-|kana-familyname|string|null: false|
-|kana-name|string|null: false|
+|familyname|string|null: false|
+|name|string|null: false|
+|kana_familyname|string|null: false|
+|kana_name|string|null: false|
 |birthday|date|null: false|
 
 ### Association
