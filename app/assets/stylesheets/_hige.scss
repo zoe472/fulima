@@ -1,0 +1,162 @@
+
+table {
+  width: 100%;
+  height: 375px;
+  border-collapse: collapse;
+  border: 1px solid #f8f8f8;
+}
+th {
+  width: 20%;
+  background-color: #eee;
+  font-weight: 400;
+  padding: 8px;
+  border: 1px solid #dedede;
+  font-size: 14px;
+  text-align: center;
+}
+td {
+  width: 61%;
+  padding: 15px 15px;
+  border: 1px solid #dedede;
+  font-size: 14px;
+}
+a {
+  text-decoration: none;
+  color: #3CCACE;
+}
+#comment_body {
+  width: 100%;
+  min-height: 104px;
+  padding: 10px;
+}
+.fa {
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+
+}
+.main {
+  background: #f8f8f8;
+  &__showMain {
+    padding: 40px;
+    margin: 0 auto;
+  }
+  &__contentLeftqq {
+  
+  }
+    &__showMain__contentRight {
+      width: 700px;
+      margin: 0 auto;
+    }
+      &__showMain__contentRight__topContent {
+        background-color: #fff;
+      }
+        &__showMain__contentRight__topContent__itemBox {
+          background-color: #fff;
+          padding: 24px 40px 40px;
+        }
+        &__showMain__contentRight__topContent__itemBox__name {
+          text-align: center;
+          font-weight: bold;
+          font-size: 24px;
+        }
+          &__showMain__contentRight__topContent__itemBox__itemBox__body {
+            margin: 16px 0 0;
+          }
+          &__showMain__contentRight__topContent__itemBox__itemBox__body ul {
+            display: flex;
+            position: relative;
+          }
+          &__showMain__contentRight__topContent__itemBox__itemBox__body ul>li {
+            display: flex;
+            flex-direction: column;
+            width: 560px;
+            align-items: center;
+            margin: 0 auto;
+          }
+          &__showMain__contentRight__topContent__itemBox__itemBox__body ul>li img {
+            object-fit: cover;
+            height: 346px;
+          }
+          &__showMain__contentRight__topContent__itemBox__itemBox__price {
+            margin: 24px 0 24px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+          }
+          &__showMain__contentRight__topContent__itemBox__itemBox__price>span {
+            font-size: 46px;
+            font-weight: bold;
+            margin: 0 10px 0 0;
+          }
+          &__showMain__contentRight__topContent__itemBox__itemDetail {
+            line-height: 1.5;
+            font-size: 18px;
+            margin-bottom: 30px;
+          }
+          &__showMain__contentRight__topContent__itemBox__table {
+            margin-bottom: 20px;
+          }
+          &__showMain__contentRight__topContent__itemBox__optionalArea {
+            display: flex;
+            justify-content: space-between;
+          }
+          &__showMain__contentRight__topContent__itemBox__optionalArea__likeBtn {
+            margin-right: auto;
+            padding: 6px 10px;
+            border-radius: 40px;
+            color: #3CCACE;
+            border: 1px solid #ffb340;
+          }
+          &__showMain__contentRight__topContent__itemBox__optionalArea__optional {
+            margin: 10px 0 0;
+            display: flex;
+          }
+          &__showMain__contentRight__topContent__itemBox__optionalArea__optional__optionalBtn {
+            font-size: 14px;
+          }
+          &__showMain__contentRight__topContent__itemBox__optionalArea__optional__optionalBtn a {
+            padding: 6px 10px;
+            display: inline-block;
+            border-radius: 4px;
+            color: #333;
+            border: 1px solid #333;
+            text-decoration: none;
+          }
+
+
+        &__showMain__contentRight__topContent__commentBox {
+          padding: 24px;
+          background-color: #fff;
+          margin: 10px 0;
+          text-align: center;
+        } &__showMain__contentRight__topContent__commentBox__commentContents {
+          
+        }
+            &__showMain__contentRight__topContent__commentBox__commentContents__noticeMsg {
+              padding: 8px;
+              font-size: 14px;
+              background-color: #f8f8f8;
+              margin: 10px 0;
+              text-align: left;
+            }
+              &__showMain__contentRight__topContent__commentBox__commentContents__commentBtn{
+                font-size: 18px;
+                line-height: 48px;
+                background: #3CCACE;
+                border: 1px solid #3CCACE;
+                color: #fff;
+                width: 60%;
+                font-size: 18px;
+                border-radius: 100px;
+              }
+          
+}
+
+input {
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+}
