@@ -45,8 +45,8 @@
 |Column|Type|Options|
 |------|----|-------|
 |number|integer|null: false|
-|expiration-date|date|null: false|
-|security-code|integer|null: false|
+|expiration_date|date|null: false|
+|security_code|integer|null: false|
 |user_id|integer|foreign_key: true|
 
 ### Association
