@@ -7,4 +7,6 @@ class User < ApplicationRecord
   validates :nickname, :email, :encrypted_password, :familyname, :name, :kana_familyname, :kana_name, :birthday ,presence: true
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, uniqueness: true, format: { with: VALID_EMAIL_REGEX }
+  VALID_NAME_REGEX = /^[一-龥ぁ-ん]/
+  validates :familyname, :name, :kana_familyname, :kana_name, format: { with: VALID_NAME_REGEX }
 end
