@@ -14,4 +14,6 @@ class User < ApplicationRecord
   # かなの入力を平仮名全角のみに指定
   VALID_KANANAME_REGEX = /\A[ぁ-ん]+\z/
   validates :kana_familyname, :kana_name, format: { with: VALID_KANANAME_REGEX }
+
+  has_one :address
 end
