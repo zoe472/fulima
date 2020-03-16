@@ -3,7 +3,6 @@ Rails.application.routes.draw do
   get 'credit/show'
   root to: 'items#index'
 
-  resources :items
   resources :mypage do
     collection do
       get 'sell'
