@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
-  get 'credit/new'
-  get 'credit/show'
   root to: 'items#index'
 
+  resources :credit
   resources :items
   resources :mypage do
     collection do
