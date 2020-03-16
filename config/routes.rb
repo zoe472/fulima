@@ -13,7 +13,6 @@ Rails.application.routes.draw do
     end
   end
   resources :users
-
   resources :credit
   resources :mypage do
     collection do
