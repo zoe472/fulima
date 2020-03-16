@@ -5,11 +5,11 @@ Rails.application.routes.draw do
   resources :items
   resources :mypage do
     collection do
-      get 'sell'
-      get 'purchace'
-      get 'profile'
-      get 'logout'
-      get 'mail'
+      get :sell
+      get :purchace
+      get :profile
+      get :logout
+      get :mail
     end
   end
 end
