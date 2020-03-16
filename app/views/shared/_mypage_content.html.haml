@@ -1,0 +1,34 @@
+.mypage-content
+  %section.mypage-user-icon
+    %a{:href => "#"}
+      %figure
+        = image_tag "member_photo_noimage_thumb.png", class: "user-icon"
+      %h2.bold Sumple
+      .mypage-number
+        %div
+          評価
+          %span.bold 1
+        %div
+          出品数
+          %span.bold 0
+  %section.mypage-tab-news
+    %ul.mypage-tab
+      %li.news-list
+        %h3
+          %a{:href => "#"}
+            お知らせ
+    %div.news-content
+      %ul.news-list
+        %li
+          %a{:href => "#"}
+            %figure
+              = image_tag "logo2.png", class: "news-icon"
+            %div.news-body
+              %div.news-text
+                管理者からのお知らせです。
+              %time
+                %i.far.fa-clock
+                %span 昨日
+            %i.fas.fa-chevron-right
+        %li.news-full-list
+          %a{:href => "#"}一覧を見る
