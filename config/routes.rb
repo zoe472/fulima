@@ -1,17 +1,6 @@
 Rails.application.routes.draw do
   root to: 'items#index'
 
-  resources :credit
-  resources :items
-  resources :mypage do
-    collection do
-      get :sell
-      get :purchace
-      get :profile
-      get :logout
-      get :mail
-    end
-  end
   resources :items do
     collection do
       get :hoge
@@ -24,4 +13,15 @@ Rails.application.routes.draw do
     end
   end
   resources :users
+
+  resources :credit
+  resources :mypage do
+    collection do
+      get :sell
+      get :purchace
+      get :profile
+      get :logout
+      get :mail
+    end
+  end
 end
