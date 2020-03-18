@@ -31,11 +31,10 @@ a {
 }
 .fa {
   display: inline-block;
-  font: normal normal normal 14px/1 FontAwesome;
-  font-size: inherit;
-  text-rendering: auto;
-  -webkit-font-smoothing: antialiased;
-
+  font: normal normal normal 14px/1 
+}
+li {
+  list-style: none;
 }
 .main {
   background: #f8f8f8;
@@ -50,6 +49,26 @@ a {
       width: 700px;
       margin: 0 auto;
     }
+      &__showMain__contentRight__links li {
+        float: left;
+      }
+      &__showMain__contentRight__links li:last-child {
+        float: right;
+      }
+
+      &__showMain__contentRight__links li a {
+        text-decoration: none;
+        color: #3CCACE;
+      }
+      &__showMain__contentRight__relatedItems a {
+        display: block;
+        margin: 24px 0 8px;
+        color: #3CCACE;
+        text-decoration: none;
+        font-weight: bold;
+        float: left;
+        
+      }
       &__showMain__contentRight__topContent {
         background-color: #fff;
       }

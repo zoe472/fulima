@@ -1,1 +1,42 @@
-test
+.container 
+  .container__sp-header hoge
+  .container__pc-header
+  .container__l-single
+    %h1.container__l-single__item-name A B C
+    .container__l-single__clearfix
+      .container__l-single__clearfix__photo
+        .container__l-single__clearfix__photo__drag
+          .container__l-single__clearfix__photo__drag__outer
+            .container__l-single__clearfix__photo__drag__outer__stage{:style => "left: 0px; width: 1200px;"}
+              .container__l-single__clearfix__photo__drag__outer__stage__active{:style => "width: 300px;"}
+                .container__l-single__clearfix__photo__drag__outer__stage__active__hight
+          .container__l-single__clearfix__photo__drag__disabled
+          .container__l-single__clearfix__photo__drag__dots
+      .container__l-single__clearfix__pricebox
+        %span.container__l-single__clearfix__pricebox__bold ¥100
+        %span.container__l-single__clearfix__pricebox__tax (税込み)
+        %span.container__l-single__clearfix__pricebox__fee 送料込み
+      .container__l-single__clearfix__visible
+        .container__l-single__clearfix__visible__area
+        %a.container__l-single__clearfix__visible__btn{:href => "#"}購入画面に進む
+
+      %table.container__l-single__clearfix__table
+        %tbody
+          %tr
+            %th 出品者
+            %td
+              %a{:href => "#"} Aさん
+
+
+
+  %ul.container__message
+
+  .container__media-box
+  .container__profile
+  %aside.container__modal
+  %nav.container__bottom
+  %aside.container__banner
+  %footer.container__footer
+  %a.container__sell-btn{:href => "#/"}
+  .container__ios
+
