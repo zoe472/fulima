@@ -1,42 +1,103 @@
-.container 
-  .container__sp-header hoge
-  .container__pc-header
-  .container__l-single
-    %h1.container__l-single__item-name A B C
-    .container__l-single__clearfix
-      .container__l-single__clearfix__photo
-        .container__l-single__clearfix__photo__drag
-          .container__l-single__clearfix__photo__drag__outer
-            .container__l-single__clearfix__photo__drag__outer__stage{:style => "left: 0px; width: 1200px;"}
-              .container__l-single__clearfix__photo__drag__outer__stage__active{:style => "width: 300px;"}
-                .container__l-single__clearfix__photo__drag__outer__stage__active__hight
-          .container__l-single__clearfix__photo__drag__disabled
-          .container__l-single__clearfix__photo__drag__dots
-      .container__l-single__clearfix__pricebox
-        %span.container__l-single__clearfix__pricebox__bold ¥100
-        %span.container__l-single__clearfix__pricebox__tax (税込み)
-        %span.container__l-single__clearfix__pricebox__fee 送料込み
-      .container__l-single__clearfix__visible
-        .container__l-single__clearfix__visible__area
-        %a.container__l-single__clearfix__visible__btn{:href => "#"}購入画面に進む
+.container
+  %body
+  %header.container__header
+  %main.container__main
+    %section.container__main__book
+      %h2.container__main__book__head
+      購入内容の確認
+      %section.container__main__book__item
+        .container__main__book__item__inner
+          .container__main__book__item__inner__box
+            %h3.container__main__book__item__inner__box__image
+            .container__main__book__item__inner__box__detail
+              %p.container__main__book__item__inner__box__detail__name
+              商品の説明
+              %p.container__main__book__item__inner__box__detail__bold
+                %span
+                ¥100
+                %span.container__main__book__item__inner__box__detail__bold__fee
+                (税込）送料込み
+      %section.container__main__book__item
+        .container__main__book__item__inner
+          .container__main__book__item__inner__form
+            %ul.container__main__book__item__inner__form__table
+              %li.container__main__book__item__inner__form__table__price
+                .container__main__book__item__inner__form__table__price__label
+                支払い金額
+                .container__main__book__item__inner__form__table__price__cell
+                %span{"data-buy-pay" => "100"} ¥100
+            %ul.container__main__book__item__inner__form__point
+              %li.container__main__book__item__inner__form__point__parent
+                .container__main__book__item__inner__form__point__parent__box
+                  %input{:disabled => "disabled", :type => "checkbox"}/
+                  %i.container__main__book__item__inner__form__point__parent__box__icon
+                  %label ポイントを使用 (所持ポイント: P0)
+            .container__main__book__item__inner__form__info
+              .container__main__book__item__inner__form__info__point
+                %h3 支払い方法
+                %a{:href => "#"}
+                %p.container__main__book__item__inner__form__info__point__text
+                  %i.container__main__book__item__inner__form__info__point__text__circle
+                  %span.container__main__book__item__inner__form__info__point__text__circle__register
+                  登録してください
+            .container__main__book__item__inner__form__info
+              .container__main__book__item__inner__form__info__dot
+                %h3 配送先
+                %a{:href => "#"}
+                  .container__main__book__item__inner__form__info__dot__sentence
+                  
 
-      %table.container__l-single__clearfix__table
-        %tbody
-          %tr
-            %th 出品者
-            %td
-              %a{:href => "#"} Aさん
+
+            
+            
+                  
+
+
+                  
 
 
 
-  %ul.container__message
 
-  .container__media-box
-  .container__profile
-  %aside.container__modal
-  %nav.container__bottom
-  %aside.container__banner
-  %footer.container__footer
-  %a.container__sell-btn{:href => "#/"}
-  .container__ios
 
+            
+
+
+
+                
+
+
+
+
+          
+
+
+
+
+
+
+
+
+
+            
+
+
+
+
+
+
+          
+
+
+
+
+                
+
+
+            
+
+          
+
+
+      %section.container__main__book__item
+
+  .container__footer
