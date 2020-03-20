@@ -1,6 +1,6 @@
 FactoryBot.define do
 
-  factory :user do
+  factory :address do
     familyname            {"安倍"}
     name                  {"大貴"}
     kana_familyname       {"あべ"}
@@ -9,7 +9,7 @@ FactoryBot.define do
     prefecture            {"茨城県"}
     city                  {"清須市"}
     address               {"清洲町"}
-    apartment             {""}
+    apartment             {"70-1"}
     cellphone             {"09012345678"}
     user_id               {"1"}
   end
