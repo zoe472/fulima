@@ -11,11 +11,9 @@
       &__item{
         position: relative;
         background-color: #fff;
-        display: block;
         min-height: 48px;
         padding: 16px;
         font-size: 14px;
-        color: #333;
         .fas.fa-chevron-right{
           position: absolute;
           right: 16px;
@@ -35,17 +33,9 @@
       list-style: none;
       display: block;
       font-size: 1.17em;
-      margin-block-start: 1em;
-      margin-block-end: 1em;
-      margin-inline-start: 0px;
-      margin-inline-end: 0px;
       font-weight: bold;
       margin-top: 25%;
     }
   }
-  
-}
-a {
-  text-decoration: none;
   
 }

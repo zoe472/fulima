@@ -1,6 +1,6 @@
 .mypage-content
   %section.mypage-user-icon
-    %a{:href => "#"}
+    %a.link-share{:href => "#"}
       %figure
         = image_tag "member_photo_noimage_thumb.png", class: "user-icon"
       %h2.bold Sumple
@@ -15,12 +15,12 @@
     %ul.mypage-tab
       %li.news-list
         %h3
-          %a{:href => "#"}
+          %a.link-share{:href => "#"}
             お知らせ
     %div.news-content
       %ul.news-list
         %li
-          %a{:href => "#"}
+          %a.link-share{:href => "#"}
             %figure
               = image_tag "logo2.png", class: "news-icon"
             %div.news-body
@@ -31,4 +31,4 @@
                 %span 昨日
             %i.fas.fa-chevron-right
         %li.news-full-list
-          %a{:href => "#"}一覧を見る
+          %a.link-share{:href => "#"}一覧を見る

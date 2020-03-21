@@ -11,13 +11,11 @@
   background-size: cover;
   text-align: center;
   a{
-    display: block;
     position: absolute;
     top: 50%;
     left: 0;
     right: 0;
     transform: translate(0, -50%);
-    color: #333;
   }  
   h2{
     margin: 8px 0 0;
@@ -81,10 +79,8 @@ a{
     border-bottom: 1px solid #eee;
     
     a{
-      display: block;
       min-height: 80px;
       padding: 16px;
-      color: #333;
       figure{
         position: relative;
         overflow: hidden;
@@ -137,13 +133,15 @@ a{
   .news-full-list{
     padding: 16px;
     a{
-      display: block;
       height: 56px;
       margin: 0 auto;
       background: #eee;
-      color: #333;
       line-height: 56px;
       text-align: center;
     }
   }
 
+  .link-share{
+    display: block;
+    color: #333;
+  }

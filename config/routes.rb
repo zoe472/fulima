@@ -21,6 +21,7 @@ Rails.application.routes.draw do
       get :profile
       get :logout
       get :mail
+      get :sample
     end
   end
 end

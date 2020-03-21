@@ -17,5 +17,8 @@ class MypageController < ApplicationController
 
   def mail
   end
+
+  def sample
+  end
   
 end
