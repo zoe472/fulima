@@ -61,9 +61,13 @@ select {
     margin-top: 60px;
     text-align: center;
   }
+
+  &-register {
+    margin-top: 60px;
+  }
 }
 
-.user-submit {
+.user-submit{
   text-align: center;
 
   &__btn {
