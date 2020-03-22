@@ -32,14 +32,14 @@
           = f.label :"お名前(全角)"
           %span.field-item 必須
           %br/
-          = f.text_field :familyname, autofocus: true, autocomplete: ":familyname", placeholder: "例）山田", class: "field-input-name"
-          = f.text_field :name, autofocus: true, autocomplete: ":name", placeholder: "例）彩", class: "field-input-name"
+          = f.text_field :familyname, autofocus: true, autocomplete: ":familyname", placeholder: "例）山田", class: "field-input input-name"
+          = f.text_field :name, autofocus: true, autocomplete: ":name", placeholder: "例）彩", class: "field-input input-name"
         .field
           = f.label :"お名前かな(全角)"
           %span.field-item 必須
           %br/
-          = f.text_field :kana_familyname, autofocus: true, autocomplete: ":kana_familyname", placeholder: "例）やまだ", class: "field-input-name"
-          = f.text_field :kana_name, autofocus: true, autocomplete: ":kana_name", placeholder: "例）あや",class: "field-input-name"
+          = f.text_field :kana_familyname, autofocus: true, autocomplete: ":kana_familyname", placeholder: "例）やまだ", class: "field-input input-name"
+          = f.text_field :kana_name, autofocus: true, autocomplete: ":kana_name", placeholder: "例）あや",class: "field-input input-name"
         .field
           = f.label :生年月日
           %span.field-item 必須

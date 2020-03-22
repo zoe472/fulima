@@ -1,42 +1,45 @@
+$mainColor: #3CCACE;
+
+@mixin user-color {
+  background-color: $mainColor;
+  color: white;
+}
+
+@mixin user-input {
+  padding: 10px 16px 8px;
+  margin-top: 5px;
+  font-size: 14px;
+}
+
 .form__new-user__title {
-  font-size: 22px;
-  text-align: center;
   margin:40px 0;
+  font-size: 22px;
   font-weight: bolder;
+  text-align: center;
 }
 
 .form__new-user__area {
-  font-size: 14px;
   max-width: 350px;
   margin: 0 auto;
+  font-size: 14px;
 }
 
 .field {
   margin-top: 30px;
-  max-width: 350px;
 
   &-item {
-    background-color: #3CCACE;
-    color: white;
+    @include user-color;
     border-radius: 2px;
     padding: 3px;
   }
 
   &-input {
-    width: 314px;
+    @include user-input;
     height: 30px;
-    padding: 10px 16px 8px;
-    margin-top: 5px;
-    font-size: 14px;
-    border-radius: 2px;
+    width: 314px;
 
-    &-name {
-      margin-top: 5px;
-      padding: 10px 16px 8px;
+    &.input-name {
       width: 136px;
-      height: 30px;
-      font-size: 14px;
-      border-radius: 2px;
     }
   }
 }
@@ -46,10 +49,9 @@
 }
 
 select {
+  @include user-input;
   height: 52px;
   width: 113px;
-  margin-top: 5px;
-  font-size: 14px;
 }
 
 .attention {
@@ -65,8 +67,7 @@ select {
   text-align: center;
 
   &__btn {
-    background-color: #3CCACE;;
-    color: white;
+    @include user-color;
     width: 350px;
     height: 52px;
     margin: 30px 0px;
