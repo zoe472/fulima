@@ -1,0 +1,41 @@
+.side-bar{
+  float: left;
+  width: 280px;
+  margin: 0 40px 0 0;
+  &__nav{
+    &__menue{
+      list-style: none;
+      li{
+        border-top: 1px solid #eee;
+      }
+      &__item{
+        position: relative;
+        background-color: #fff;
+        min-height: 48px;
+        padding: 16px;
+        font-size: 14px;
+        .fas.fa-chevron-right{
+          position: absolute;
+          right: 16px;
+        }
+        
+      }
+      &__item:hover{
+        background-color: #c0c0c0;
+        .fas.fa-chevron-right{
+          position: absolute;
+          right: 10px;
+        }
+      }
+    }
+    &__setting{
+      margin: 40px 0 0;
+      list-style: none;
+      display: block;
+      font-size: 1.17em;
+      font-weight: bold;
+      margin-top: 25%;
+    }
+  }
+  
+}

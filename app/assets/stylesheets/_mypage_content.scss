@@ -1,0 +1,147 @@
+.mypage-content{
+  float: left;
+  width: 700px;
+}
+.mypage-user-icon{
+  background-color: greenyellow;
+  height: 200px;
+  position: relative;
+  padding: 20px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  text-align: center;
+  a{
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    transform: translate(0, -50%);
+  }  
+  h2{
+    margin: 8px 0 0;
+    font-size: 14px;
+  }
+}
+
+.user-icon{
+  height: 60px;
+  width: 60px;
+}
+
+.mypage-number{
+  margin: 8px 0 0;
+  font-size: 0;
+  div{
+    display: inline-block;
+    font-size: 14px;
+    span{
+      margin: 0 0 0 8px;
+      font-size: 16px;
+    }
+  }
+  div+div{
+    margin: 0 0 0 16px;
+  }
+}
+.mypage-tab-news{
+  margin: 0;
+  background-color: #ffffff;
+}
+
+.mypage-tab{
+  border: 0;
+  background: #ffffff;
+  font-size: 0;
+  li{
+    width: 100%;
+    h3{
+      font-size: 22px;
+      a{
+        border-top: 2px solid #00ff7f;
+        position: relative;
+        display: block;
+        color: #333;
+        font-size: 16px;
+        line-height: 72px;
+        text-align: center;
+      }
+    }
+  }
+}
+
+a{
+  text-decoration: none;
+}
+.news-list{
+  display: block;
+  li{
+    position: relative;
+    border-bottom: 1px solid #eee;
+    
+    a{
+      min-height: 80px;
+      padding: 16px;
+      figure{
+        position: relative;
+        overflow: hidden;
+        float: left;
+        width: 48px;
+        height: 48px;
+        img{
+          position: absolute;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          z-index: 1;
+          width: 100%;
+        }
+      }
+      .new-body{
+        margin: 0 40px 0 68px;
+        }
+      }
+      .news-text{
+        overflow: hidden;
+        display: block;
+        max-height: 4.4em;
+        text-overflow: ellipsis;
+        line-height: 1.5;
+      }
+      time{
+        display: inline-block;
+        color: #888;
+        .far.fa-clock{
+          margin: 0 8px 0 0;
+          font-size: 16px;
+          vertical-align: middle;
+        }
+        span{
+          vertical-align: middle;
+        }
+      }
+      .fas.fa-chevron-right{
+        position: absolute;
+        top: 50%;
+        right: 16px;
+        transform: translate(0, -50%);
+      }
+      
+    }
+  }
+
+  .news-full-list{
+    padding: 16px;
+    a{
+      height: 56px;
+      margin: 0 auto;
+      background: #eee;
+      line-height: 56px;
+      text-align: center;
+    }
+  }
+
+  .link-share{
+    display: block;
+    color: #333;
+  }

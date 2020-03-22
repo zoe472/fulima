@@ -1,0 +1,63 @@
+.purchace{
+  background: #fff;
+  margin: 40px 0 0;
+  &__top{
+    padding: 0 4%;
+    background: #fafafa;
+    font-size: 16px;
+    line-height: 72px;
+  }
+  &__tab{
+    border: 0;
+    background: #eee;
+    font-size: 0;
+    li{
+      width: 50%;
+      display: inline-block;
+      text-align: center;
+      vertical-align: top;
+      &:active{
+        background: #fff;
+        }
+      h3{
+        font-size: 22px;
+        a{
+          position: relative;
+          font-size: 16px;
+          line-height: 72px;
+          &:active{
+            border-top: 1px solid #00ff7f;
+          }
+        }
+      }
+      }
+    }
+    &__content{
+      &__item.active{
+        display: block;
+      }
+      &__item{
+        display: none;
+      }
+      &__history{
+        padding: 160px 0 60px;
+        background: url("logo2.png");
+        background-repeat: no-repeat;
+        background-position: center 40px;
+        background-size: 78px 85px;
+        text-align: center;
+        font-size: 16px;
+        color: #ccc;
+      }
+    }
+  }
+
+  .active{
+    background: #fff;
+  }
+
+  li.active{
+    a{
+      border-top: 1px solid #00ff7f;
+    }
+  }
