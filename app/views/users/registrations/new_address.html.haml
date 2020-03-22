@@ -1,46 +1,49 @@
-%h2 住所情報登録
+.form__new-address
+  .form__new-address__title
+    住所情報入力
 = form_for @address do |f|
   = render "devise/shared/error_messages", resource: @address
-  .field
-    = f.label :familyname
-    %br/
-    = f.text_field :familyname
-  .field
-    = f.label :name
-    %br/
-    = f.text_field :name
-  .field
-    = f.label :kana_familyname
-    %br/
-    = f.text_field :kana_familyname
-  .field
-    = f.label :kana_name
-    %br/
-    = f.text_field :kana_name
-  .field
-    = f.label :postalcode
-    %br/
-    = f.text_field :postalcode
-  .field
-    = f.label :prefecture
-    %br/
-    = f.text_field :prefecture
-  .field
-    = f.label :city
-    %br/
-    = f.text_field :city
-  .field
-    = f.label :address
-    %br/
-    = f.text_field :address
-  .field
-    = f.label :apartment
-    %br/
-    = f.text_field :apartment
-  .field
-    = f.label :cellphone
-    %br/
-    = f.text_field :cellphone
-  .actions
-    = f.submit "Sign up"
-= render "devise/shared/links"
+  .form__new-address__field
+    .form__new-address__area
+      .field
+        = f.label :"お名前(全角)"
+        %span.field-item 必須
+        %br/
+        = f.text_field :familyname, placeholder: "例）山田", class: "field-input-name"
+        = f.text_field :name, placeholder: "例）彩", class: "field-input-name"
+      .field
+        = f.label :"お名前かな(全角)"
+        %span.field-item 必須
+        %br/
+        = f.text_field :kana_familyname, placeholder: "例）やまだ", class: "field-input-name"
+        = f.text_field :kana_name, placeholder: "例）あや",class: "field-input-name"
+      .field
+        = f.label :郵便番号
+        %span.field-item 必須
+        %br/
+        = f.text_field :postalcode, placeholder: "例）4520942", class: "field-input-name"
+      .field
+        = f.label :都道府県
+        %span.field-item 必須
+        %br/
+        = f.text_field :prefecture,placeholder: "例）愛知県", class: "field-input-name"
+      .field
+        = f.label :市区町村
+        %span.field-item 必須
+        %br/
+        = f.text_field :city, placeholder: "例）清須市", class: "field-input-name"
+      .field
+        = f.label :番地
+        %span.field-item 必須
+        %br/
+        = f.text_field :address, placeholder: "例）清洲田中町", class: "field-input-name"
+      .field
+        = f.label :マンション名やビル名、部屋番号
+        %br/
+        = f.text_field :apartment, placeholder: "例）メゾン清洲96−２", class: "field-input-name"
+      .field
+        = f.label :お届け先の電話番号
+        %br/
+        = f.text_field :cellphone, placeholder: "例）09019880909", class: "field-input-name"
+      .address-submit
+        = f.submit "Sign up", class: "new-address__btn"
