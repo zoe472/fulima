@@ -9,19 +9,19 @@
         = f.label :"お名前(全角)"
         %span.field-item 必須
         %br/
-        = f.text_field :familyname, placeholder: "例）山田", class: "field-input-name"
-        = f.text_field :name, placeholder: "例）彩", class: "field-input-name"
+        = f.text_field :familyname, placeholder: "例）山田", class: "field-input input-name"
+        = f.text_field :name, placeholder: "例）彩", class: "field-input input-name"
       .field
         = f.label :"お名前かな(全角)"
         %span.field-item 必須
         %br/
-        = f.text_field :kana_familyname, placeholder: "例）やまだ", class: "field-input-name"
+        = f.text_field :kana_familyname, placeholder: "例）やまだ", class: "field-input input-name"
         = f.text_field :kana_name, placeholder: "例）あや",class: "field-input-name"
       .field
         = f.label :郵便番号
         %span.field-item 必須
         %br/
-        = f.text_field :postalcode, placeholder: "例）4520942", class: "field-input-name"
+        = f.text_field :postalcode, placeholder: "例）4520942", class: "field-input input-name"
       .field
         = f.label :都道府県
         %span.field-item 必須
