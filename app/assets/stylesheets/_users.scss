@@ -79,3 +79,18 @@ select {
     font-size: 14px;
   }
 }
+
+.link__new-user {
+  width: 350px;
+  margin: 0 auto;
+
+  &__btn {
+    @include user-color;
+    width: 350px;
+    height: 52px;
+    text-align: center;
+    line-height: 50px;
+    display: block;
+    text-decoration: none;
+  }
+}
