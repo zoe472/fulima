@@ -4,15 +4,15 @@
     %ul.sell__tab
       %li.active
         %h3
-          %a.link-share{:href => "#"} 
+          = link_to "#", class:"link-share" do
             出品中
       %li
         %h3
-          %a.link-share{:href => "#"} 
+          = link_to "#", class:"link-share" do
             取引中
       %li
         %h3
-          %a.link-share{:href => "#"} 
+          = link_to "#", class:"link-share" do 
             売却済み
     %div.purchace__content
       %ul.purchace__content__item.active
@@ -24,8 +24,8 @@
   
   %ul.mypage-pager
     %li.mypage-pager__prev.mypage-pager__cell
-      %a.link-share{:href => "#"}
+      = link_to "#", class:"link-share" do
         %i.fas.fa-chevron-left
     %li.mypage-pager__next.mypage-pager__cell
-      %a.link-share{:href => "#"}
+      = link_to "#", class:"link-share" do
         %i.fas.fa-chevron-right

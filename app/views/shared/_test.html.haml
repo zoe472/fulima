@@ -37,11 +37,14 @@
                 %tr
                   %th カテゴリー
                   %td 
-                    %a{:href => "#"} ベビー・キッズ
-                    %br/
-                    %a{:href => "#"}ベビー服（男女兼用) ~95cm
-                    %br/
-                    %a{:href => "#"}アウター
+                    = link_to "#", class:"link-share link-color" do
+                      ベビー・キッズ
+                    %br
+                    = link_to "#", class:"link-share link-color" do
+                      ベビー服（男女兼用) ~95cm
+                    %br
+                    = link_to "#", class:"link-share link-color" do
+                      アウター
                 %tr
                   %th ブランド
                   %td
@@ -57,7 +60,8 @@
                 %tr 
                   %th 発送元の地域
                   %td 
-                    %a{:href => "#"}岩手県
+                    = link_to "#", class:"link-share link-color" do
+                      岩手県
                 %tr 
                   %th 発送日の目安
                   %td 4-7日で発送
@@ -68,7 +72,7 @@
                 お気に入り 0
             %ul.main__showMain__contentRight__topContent__itemBox__optionalArea__optional
               %li.main__showMain__contentRight__topContent__itemBox__optionalArea__optional__optionalBtn
-                %a{:href => "a"}
+                = link_to "#", class:"link-share" do
                   %i.fa.fa-flag
                   不適切な商品の通報
         .main__showMain__contentRight__topContent__commentBox
@@ -84,15 +88,16 @@
               コメントする
       %ul.main__showMain__contentRight__links
         %li 
-          %a{:href => "#"}
+          = link_to "#", class:"link-share link-color" do
             %i.fa.fa-angle-left
             %span
               前の商品 
         %li
-          %a{:fref =>"#"}
+          = link_to "#", class:"link-share link-color" do
             %span
               後ろの商品
               %i.fa.fa-angle-right
       .main__showMain__contentRight__relatedItems
-        %a{:href => "#"} ベビー・キッズをもっと見る
+        = link_to "#", class:"link-share link-color" do 
+          ベビー・キッズをもっと見る
 

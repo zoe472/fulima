@@ -20,5 +20,8 @@ class MypageController < ApplicationController
 
   def sample
   end
+
+  def sample2
+  end
   
 end

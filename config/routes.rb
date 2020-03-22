@@ -11,12 +11,7 @@ Rails.application.routes.draw do
   resources :items do
     collection do
       get :hoge
-    end
-    collection do
       get :hige
-    end
-    collection do
-      get :huge
     end
   end
   resources :users
@@ -30,6 +25,7 @@ Rails.application.routes.draw do
       get :logout
       get :mail
       get :sample
+      get :sample2
     end
   end
 end
