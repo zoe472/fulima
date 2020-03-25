@@ -8,6 +8,9 @@ Rails.application.routes.draw do
   end
   root to: 'items#index'
 
+
+  resources :items 
+
   resources :items do
     collection do
       get :hoge
@@ -28,4 +31,8 @@ Rails.application.routes.draw do
       get :sample2
     end
   end
+
+  resources :users
+
 end
+
