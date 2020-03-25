@@ -1,0 +1,56 @@
+.container
+  %header.container__header
+    %h1
+      = link_to "#", class:"link-share" do
+        = image_tag "logo.png", class: ".container__header__icon"
+  %main.container__main
+    .container__main__book
+      %h2 購入内容の確認
+      %section.container__main__book__item.container__main__book__content
+        .container__main__book__item__inner
+          .container__main__book__item__inner__box
+            %h3.container__main__book__item__inner__box__image
+              = image_tag "logo2.png", class: "item-image"
+            .container__main__book__item__inner__box__detail
+              %p.container__main__book__item__inner__box__detail__name
+                フリマのロゴです（対象年齢3歳以上）
+              %p.container__main__book__item__inner__box__detail__bold
+                %span ¥100
+                %span.container__main__book__item__inner__box__detail__bold__fee (税込）送料込み
+      %section.container__main__book__item.container__main__book__content
+        .container__main__book__item__inner
+          = form_with url: root_path, local: true do |f|
+            %ul.container__main__book__item__inner__table
+              %li.container__main__book__item__inner__table__price
+                .container__main__book__item__inner__table__price__label.container__main__book__item__inner__table__price__cell
+                  支払い金額
+                .container__main__book__item__inner__table__price__cell
+                  %span ¥100
+            %ul.container__main__book__item__inner__point
+              %li.container__main__book__item__inner__point__parent
+                .container__main__book__item__inner__point__parent__box
+                  =check_box_tag :check1
+                  %i.container__main__book__item__inner__point__parent__box__icon
+                  =label_tag :check1, "ポイントを使用 (所持ポイント: P0)"
+            %section.container__main__book__item.container__main__book__form
+              .container__main__book__item__inner
+                %h3.container__main__book__item__inner__h3 支払い方法
+                = link_to "#", class:"link-share link-color" do
+                  %p.container__main__book__item__inner__h3__text
+                    %i.fas.fa-plus-circle
+                    %span.container__main__book__item__inner__info__point__text__circle__register
+                      登録してください
+            %section.container__main__book__item.container__main__book__form
+              .container__main__book__item__inner
+                %h3.container__main__book__item__inner__h3.f-left 配送先
+                = link_to "#", class:"link-share link-color l-right" do
+                  %span 変更する
+              %adress.container__main__book__item__inner__info__adress
+                %p.container__main__book__item__inner__h3__text
+                  〒xxx-xxx
+                  %br
+                  神奈川県 第3新東京市
+                  %br
+                  Sample
+            %section.container__main__book__item.container__main__book__form
+              = f.submit "購入する", class: 'profile__top__content__button margin'

@@ -1,0 +1,59 @@
+.side-bar
+  %nav.side-bar__nav
+    %ul.side-bar__nav__menue
+      %li
+        = link_to "/mypage", class:"link-share linls-a side-bar__nav__menue__item" do
+          マイページ
+          %i.fas.fa-chevron-right
+      %li
+        = link_to "#", class:"link-share linls-a side-bar__nav__menue__item" do
+          いいね！一覧
+          %i.fas.fa-chevron-right
+      %li
+        = link_to "#", class:"link-share linls-a side-bar__nav__menue__item" do
+          出品する
+          %i.fas.fa-chevron-right
+      %li
+        = link_to "/mypage/sell", class:"link-share linls-a side-bar__nav__menue__item" do
+          出品した商品-出品中
+          %i.fas.fa-chevron-right
+      %li
+        = link_to "/mypage/sell", class:"link-share linls-a side-bar__nav__menue__item" do
+          出品した商品-取引中
+          %i.fas.fa-chevron-right
+      %li
+        = link_to "/mypage/sell", class:"link-share linls-a side-bar__nav__menue__item" do
+          出品した商品-売却済み
+          %i.fas.fa-chevron-right
+      %li
+        = link_to "/mypage/purchace", class:"link-share linls-a side-bar__nav__menue__item" do
+          購入した商品-取引中
+          %i.fas.fa-chevron-right
+      %li
+        = link_to "/mypage/purchace", class:"link-share linls-a side-bar__nav__menue__item" do
+          購入した商品-過去の取引
+          %i.fas.fa-chevron-right
+      %li
+        = link_to "/mypage/#", class:"link-share linls-a side-bar__nav__menue__item" do
+          お問い合わせ
+          %i.fas.fa-chevron-right
+  
+    
+    %h3.side-bar__nav__setting 設定
+    %ul.side-bar__nav__menue
+      %li
+        = link_to "/mypage/profile", class:"link-share linls-a side-bar__nav__menue__item" do
+          プロフィール
+          %i.fas.fa-chevron-right
+      %li
+        = link_to "/credit/show", class:"link-share linls-a side-bar__nav__menue__item" do
+          支払い方法
+          %i.fas.fa-chevron-right
+      %li
+        = link_to "/mypage/mail", class:"link-share linls-a side-bar__nav__menue__item" do
+          メール/パスワード
+          %i.fas.fa-chevron-right
+      %li
+        = link_to "/mypage/logout", class:"link-share linls-a side-bar__nav__menue__item" do
+          ログアウト
+          %i.fas.fa-chevron-right

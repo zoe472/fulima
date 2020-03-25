@@ -82,6 +82,10 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'fog-aws'
 
+gem 'font-awesome-sass'
+gem 'payjp'
+
+
 
 gem 'font-awesome-sass'
 gem 'active_hash'
@@ -92,5 +96,4 @@ gem 'font-awesome-sass'
 gem 'devise'
 gem 'devise-i18n'
 gem 'devise-i18n-views'
-
 

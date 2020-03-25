@@ -1,0 +1,6 @@
+%div.mypage-content
+  %section.profile
+    .form
+      = form_with url: root_path, local: true do |f|
+        %div.logout
+          = f.submit "ログアウト", class: 'profile__top__content__button'

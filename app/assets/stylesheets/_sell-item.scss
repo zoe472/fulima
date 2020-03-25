@@ -1,0 +1,53 @@
+.sell__tab{
+  border: 0;
+  background: #eee;
+  font-size: 0;
+  li{
+    width: 33.3%;
+    display: inline-block;
+    text-align: center;
+    vertical-align: top;
+    &:active{
+      background: #fff;
+      }
+    h3{
+      font-size: 22px;
+      a{
+        position: relative;
+        font-size: 16px;
+        line-height: 72px;
+        &:active{
+          border-top: 1px solid #00ff7f;
+        }
+      }
+    }
+    }
+  }
+
+  .mypage-pager{
+    margin: 40px 0 0;
+    height: 44px;
+    position: relative;
+    font-size: 0;
+    text-align: center;
+    &__cell{
+      display: inline-block;
+      width: 44px;
+      height: 44px;
+      border-radius: 4px;
+      background: #fff;
+      border: 1px solid #ccc;
+      font-size: 14px;
+      line-height: 42px;
+    }
+    &__prev{
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+    &__next{
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+  }

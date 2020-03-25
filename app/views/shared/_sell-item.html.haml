@@ -1,0 +1,31 @@
+%div.mypage-content
+  %section.purchace
+    %h2.purchace__top 出品した商品
+    %ul.sell__tab
+      %li.active
+        %h3
+          = link_to "#", class:"link-share" do
+            出品中
+      %li
+        %h3
+          = link_to "#", class:"link-share" do
+            取引中
+      %li
+        %h3
+          = link_to "#", class:"link-share" do 
+            売却済み
+    %div.purchace__content
+      %ul.purchace__content__item.active
+        %li.purchace__content__history 出品中の商品がありません
+      %ul.purchace__content__item
+        %li.purchace__content__history 取引中の商品がありません
+      %ul.purchace__content__item
+        %li.purchace__content__history 売却済みの商品がありません
+  
+  %ul.mypage-pager
+    %li.mypage-pager__prev.mypage-pager__cell
+      = link_to "#", class:"link-share" do
+        %i.fas.fa-chevron-left
+    %li.mypage-pager__next.mypage-pager__cell
+      = link_to "#", class:"link-share" do
+        %i.fas.fa-chevron-right

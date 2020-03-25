@@ -14,14 +14,24 @@ Rails.application.routes.draw do
   resources :items do
     collection do
       get :hoge
-    end
-    collection do
       get :hige
     end
+  end
+  resources :users
+
+  resources :credit
+  resources :mypage do
     collection do
-      get :huge
+      get :sell
+      get :purchace
+      get :profile
+      get :logout
+      get :mail
+      get :sample
+      get :sample2
     end
   end
+
   resources :users
 
 end
