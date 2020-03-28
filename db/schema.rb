@@ -33,6 +33,19 @@ ActiveRecord::Schema.define(version: 2020_03_23_122644) do
     t.integer "user_id", null: false
     t.string "customer_id", null: false
     t.string "card_id", null: false
+    
+  create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
+    t.text "description", null: false
+    t.string "size", null: false
+    t.string "status", null: false
+    t.integer "charge", null: false
+    t.string "region", null: false
+    t.integer "price", null: false
+    t.integer "date", null: false
+    t.integer "seller_id"
+    t.integer "buyer_id"
+    t.integer "brand_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
