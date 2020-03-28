@@ -16,4 +16,5 @@ class User < ApplicationRecord
   validates :kana_familyname, :kana_name, format: { with: VALID_KANANAME_REGEX }
 
   has_one :address
+  has_many :cards
 end

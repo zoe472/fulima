@@ -84,17 +84,8 @@ gem 'fog-aws'
 
 gem 'font-awesome-sass'
 gem 'payjp'
-
-
-
-
-
-
-
-
-
-
-
 gem 'devise'
 gem 'devise-i18n'
 gem 'devise-i18n-views'
+gem 'jquery-rails'
+gem 'pry-rails'
