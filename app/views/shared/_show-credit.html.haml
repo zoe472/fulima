@@ -1,16 +1,13 @@
-%div.mypage-content
-  - if @credit == "user_idと同じなら"
-    %h1 test
-  - else
-    %section.purchace
-      %h2.profile__top 支払い情報
-      %div.credit
-        %section
-          %div.credit__content
-            %h3.credit__content__top クレジットカード一覧
-          %ul
-        %setion.credit__addcard
-          %div.credit__content
-            = link_to "/credit/new", class:"profile__top__content__button link-share" do
-              %i.fas.fa-credit-card
-              クレジットカードを追加する
+.mypage-content
+  %section.purchace
+    %h2.profile__top 支払い情報
+    .credit
+      %section
+        .credit__content
+          %h3.credit__content__top クレジットカード一覧
+        %ul
+      %setion.credit__addcard
+        .credit__content
+          = link_to new_credit_path, class:"profile__top__content__button link-share" do
+            %i.fas.fa-credit-card
+            クレジットカードを追加する

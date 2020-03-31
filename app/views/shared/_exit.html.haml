@@ -1,6 +1,6 @@
-%div.mypage-content
+.mypage-content
   %section.profile
     .form
       = form_with url: root_path, local: true do |f|
-        %div.logout
-          = f.submit "ログアウト", class: 'profile__top__content__button'
+        .logout
+          = link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'profile__top__content__button' 

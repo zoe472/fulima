@@ -3,7 +3,8 @@
     = link_to "#", class:"link-share linls-a" do
       %figure
         = image_tag "member_photo_noimage_thumb.png", class: "user-icon"
-      %h2.bold Sumple
+      %h2.bold 
+        = current_user.nickname
       .mypage-number
         %div
           評価
@@ -17,14 +18,14 @@
         %h3
           = link_to "#", class:"link-share linls-a" do
             お知らせ
-    %div.news-content
+    .news-content
       %ul.news-list
         %li
           = link_to "#", class:"link-share linls-a" do
             %figure
               = image_tag "logo2.png", class: "news-icon"
-            %div.news-body
-              %div.news-text
+            .news-body
+              .news-text
                 管理者からのお知らせです。
               %time
                 %i.far.fa-clock
