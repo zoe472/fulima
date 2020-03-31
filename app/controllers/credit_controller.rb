@@ -1,6 +1,7 @@
 class CreditController < ApplicationController
   require "payjp"
-  before_action :get_payjp_info,only: [:pay, :delete, :show]
+  before_action :set_card, only: [:index, :delete, :show]
+  before_action :get_payjp_info, only: [:pay, :delete, :show]
 
   def new
   end
@@ -25,30 +26,26 @@ class CreditController < ApplicationController
   end
 
   def delete #PayjpとCardデータベースを削除します
-    card = Card.where(user_id: current_user.id).first
-    if card.blank?
-    else
-      customer = Payjp::Customer.retrieve(card.customer_id)
+    if @card.present?
+      customer = Payjp::Customer.retrieve(@card.customer_id)
       customer.delete
-      card.delete
+      @card.delete
     end
       redirect_to action: :index
   end
 
   def show
-    card = Card.where(user_id: current_user.id).first
-    if card.blank?
+    if @card.blank?
       redirect_to action: :index
     else
-      customer = Payjp::Customer.retrieve(card.customer_id)
-      @default_card_information = customer.cards.retrieve(card.card_id)
+      customer = Payjp::Customer.retrieve(@card.customer_id)
+      @default_card_information = customer.cards.retrieve(@card.card_id)
     end
   end
 
 
   def index
-    card = Card.where(user_id: current_user.id).first
-    redirect_to action: :show,id:current_user.id if card.present?
+    redirect_to action: :show,id:current_user.id if @card.present?
   end
 
  
@@ -57,5 +54,9 @@ class CreditController < ApplicationController
   
   def get_payjp_info
     Payjp.api_key = Rails.application.credentials.dig(:payjp, :PAYJP_SECRET_KEY)
+  end
+
+  def set_card
+    @card = Card.where(user_id: current_user.id).first
   end
 end
