@@ -56,6 +56,6 @@ class CreditController < ApplicationController
   private
   
   def get_payjp_info
-    Payjp.api_key = "sk_test_91d9387346272e9207fde8f5"
+    Payjp.api_key = Rails.application.credentials.dig(:payjp, :PAYJP_SECRET_KEY)
   end
 end

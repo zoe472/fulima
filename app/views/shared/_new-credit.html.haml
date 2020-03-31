@@ -1,4 +1,4 @@
-%div.mypage-content
+.mypage-content
   %section.purchace
     %h2.profile__top クレジットカード情報入力
     .content
@@ -11,19 +11,19 @@
             %ul.resister-credi__errow
             %ul.resister-credi__card
               = image_tag "credit01.JPG", class: "resister-credit__list"
-          %div.resister-credit.margin
+          .resister-credit.margin
             = f.label :有効期限, class: "resister-credit__number" 
             %span.resister-credit__need 必須
             %br
-            %div.resister-credit__limit
+            .resister-credit__limit
               = f.select :exp_month, [["01",1],["02",2],["03",3],["04",4],["05",5],["06",6],["07",7],["08",8],["09",9],["10",10],["11",11],["12",12]],{}, class: "resister-credit__limit__mm", name: "exp_month", id: "exp_month"
               %i.fas.fa-chevron-down
               %span 月
-            %div.resister-credit__limit
+            .resister-credit__limit
               = f.select :exp_year, [["19",2019],["20",2020],["21",2021],["22",2022],["23",2023],["24",2024],["25",2025],["26",2026],["27",2027],["28",2028],["29",2029]],{}, class: "resister-credit__limit__mm", name: "exp_year", id:"exp_year"
               %i.fas.fa-chevron-down
               %span 年
-          %div.resister-credit.margin
+          .resister-credit.margin
             = f.label :セキュリティーコード, class: "resister-credit__number" 
             %span.resister-credit__need 必須
             = f.text_field :cvc, name: "cvc", id:"cvc", type: 'text',placeholder: "カード背面4桁もしくは3桁の番号", maxlength: "4",class:"resister-credit__text"
