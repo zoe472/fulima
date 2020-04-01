@@ -1,21 +1,21 @@
-%div.mypage-content
+.mypage-content
   %section.profile
     %h2.profile__top メール/パスワード
     .content
       = form_with url: root_path, local: true do |f|
-        %div.content__inner
-          %div.resister-credit.margin
+        .content__inner
+          .resister-credit.margin
             %label.resister-credit__number メールアドレス
             = f.text_field :text, placeholder: "sample@mail.com", class:"resister-credit__text"
             %p.forms メールアドレスを変更すると確認メールが送信されます。メール内のURLをクリックすると変更完了です。
-          %div.resister-credit.margin
+          .resister-credit.margin
             %label.resister-credit__number パスワード
             = f.text_field :text, class:"resister-credit__text"
-          %div.resister-credit.margin
+          .resister-credit.margin
             %label.resister-credit__number 新しいパスワード
             = f.text_field :text, placeholder: "7文字以上の半角英数字", class:"resister-credit__text"
             %p.forms ※ 英字と数字の両方を含めて設定してください
-          %div.resister-credit.margin
+          .resister-credit.margin
             %label.resister-credit__number 新しいパスワード確認
             = f.text_field :text, placeholder: "新しいパスワードを再入力", class:"resister-credit__text"
           = f.submit "変更する", class: 'profile__top__content__button margin'
