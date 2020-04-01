@@ -8,8 +8,11 @@ Rails.application.routes.draw do
   end
   root to: 'items#index'
 
-
-  resources :items 
+  resources :products do
+    collection do
+      get :new
+    end
+  end
 
   resources :items do
     collection do
