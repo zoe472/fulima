@@ -68,6 +68,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
     params.require(:address).permit(:familyname, :name, :kana_familyname, :kana_name, :postalcode, :prefecture, :city, :address, :apartment, :cellphone)
   end
 
+  def after_sign_in_path_for(resource)
+    root_path
+  end
 
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_account_update_params
