@@ -2,7 +2,6 @@
   .form__new-user__title
     住所情報入力
 = form_for @address do |f|
-  = render "devise/shared/error_messages", resource: @address
   .form__new-user__field
     .form__new-user__area
       .field
@@ -11,32 +10,64 @@
         %br/
         = f.text_field :familyname, placeholder: "例）山田", class: "field-input input-name"
         = f.text_field :name, placeholder: "例）彩", class: "field-input input-name"
+        - if @address.errors.any?
+          %ul
+            %li.error__messages
+              = @address.errors.full_messages_for(:familyname).first
+        - if @address.errors.any?
+          %ul
+            %li.error__messages
+              = @address.errors.full_messages_for(:name).first
       .field
         = f.label :"お名前かな(全角)"
         %span.field-item 必須
         %br/
         = f.text_field :kana_familyname, placeholder: "例）やまだ", class: "field-input input-name"
         = f.text_field :kana_name, placeholder: "例）あや",class: "field-input input-name"
+        - if @address.errors.any?
+          %ul
+            %li.error__messages
+              = @address.errors.full_messages_for(:kana_familyname).first
+        - if @address.errors.any?
+          %ul
+            %li.error__messages
+              = @address.errors.full_messages_for(:kana_name).first
       .field
         = f.label :郵便番号
         %span.field-item 必須
         %br/
         = f.text_field :postalcode, placeholder: "例）4520942", class: "field-input"
+        - if @address.errors.any?
+          %ul
+            %li.error__messages
+              = @address.errors.full_messages_for(:postalcode).first
       .field
         = f.label :都道府県
         %span.field-item 必須
         %br/
         = f.text_field :prefecture,placeholder: "例）愛知県", class: "field-input"
+        - if @address.errors.any?
+          %ul
+            %li.error__messages
+              = @address.errors.full_messages_for(:prefecture).first
       .field
         = f.label :市区町村
         %span.field-item 必須
         %br/
         = f.text_field :city, placeholder: "例）清須市", class: "field-input"
+        - if @address.errors.any?
+          %ul
+            %li.error__messages
+              = @address.errors.full_messages_for(:city).first
       .field
         = f.label :番地
         %span.field-item 必須
         %br/
         = f.text_field :address, placeholder: "例）清洲田中町", class: "field-input"
+        - if @address.errors.any?
+          %ul
+            %li.error__messages
+              = @address.errors.full_messages_for(:address).first
       .field
         = f.label :マンション名やビル名、部屋番号
         %br/
@@ -47,6 +78,10 @@
         %br/
         = f.text_field :cellphone, placeholder: "例）09019880909", class: "field-input"
       %p.attention 電話番号は任意でご入力ください。
+      - if @address.errors.any?
+        %ul
+          %li.error__messages
+            = @address.errors.full_messages_for(:cellphone).first
       %p.attention-register 住所情報は、商品の送付先住所となりますので正確に入力してください。「会員登録」のボタンを押すことにより、会員登録を完了します。
       .user-submit
         = f.submit "会員登録", class: "user-submit__btn"
