@@ -6,6 +6,8 @@
     .link__new-user__btn
       = link_to "新規会員登録", new_user_registration_path, class: "link__new-user__btn"
   = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+    - flash.each do |name, msg|
+      = content_tag :div, msg, id: "flash_#{name}" if msg.is_a?(String) 
     .form__new-user__field
       .form__new-user__area
         .field
