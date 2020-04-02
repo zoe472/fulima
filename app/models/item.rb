@@ -5,4 +5,5 @@ class Item < ApplicationRecord
   belongs_to :buyer, foreign_key: "buyer_id", class_name: "User"
   has_many :goods
   has_many :comments
+  has_many :pictures
 end
