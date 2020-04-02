@@ -95,3 +95,21 @@ select {
     text-decoration: none;
   }
 }
+
+.field_with_errors {
+  display: contents;
+  
+  .field-input {
+    border-color: red;
+  }
+}
+
+li.error__messages {
+  color: red;
+}
+
+#flash_alert {
+  margin-top: 20px;
+  color: red;
+  text-align: center;
+}
