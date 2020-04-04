@@ -21,12 +21,8 @@ Rails.application.routes.draw do
     end
   end
   resources :users
-  resources :credit, only: [:new, :index, :show] do
-    collection do
-      post :pay
-      post :delete
-    end
-  end
+
+  resources :credit
   resources :mypage do
     collection do
       get :sell

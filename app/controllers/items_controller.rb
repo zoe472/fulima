@@ -1,12 +1,13 @@
 class ItemsController < ApplicationController
   
   def index #トップページ
-  end
 
+  end
 
   def new
-    
+    @item = Item.new
   end
+
   def hoge
   end
   def hige
