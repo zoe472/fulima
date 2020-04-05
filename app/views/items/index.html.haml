@@ -110,47 +110,23 @@
         =link_to "#",class:"picup-box-Head-a" do
           %h3.picup-box-Head-title 新規投稿商品
       .picup-box-lists
-      - @items.each do |item|
-        .picup-box-lists-list
-          =link_to "#" do
-            %figure.picup-box-lists-list--image
-              =image_tag 'a007.png'
-            .picup-box-lists-list--body
-              %h3.picup-box-lists-list--body-name prodcut3
-              .picup-box-lists-list--body-deta
-                %ul
-                  %li 
-                  = "#{item.price}円"
-                  %li 
-                    %i.fas.fa-star
-                    0
-                %p (税込)
-        .picup-box-lists-list
-          =link_to "#" do
-            %figure.picup-box-lists-list--image
-              =image_tag 'a004.png'
-            .picup-box-lists-list--body
-              %h3.picup-box-lists-list--body-name prodcut2
-              .picup-box-lists-list--body-deta
-                %ul
-                  %li 20000円
-                  %li 
-                    %i.fas.fa-star
-                    0
-                %p (税込)
-        .picup-box-lists-list
-          =link_to "#" do
-            %figure.picup-box-lists-list--image
-              =image_tag 'a001.png'
-            .picup-box-lists-list--body
-              %h3.picup-box-lists-list--body-name prodcut1
-              .picup-box-lists-list--body-deta
-                %ul
-                  %li 10000円
-                  %li 
-                    %i.fas.fa-star
-                    0
-                %p (税込)
+        - @items.each do |item|
+          .picup-box-lists-list
+            =link_to "#" do
+              %figure.picup-box-lists-list--image
+                =image_tag 'a007.png'
+              .picup-box-lists-list--body
+                %h3.picup-box-lists-list--body-name 
+                  = item.name
+                .picup-box-lists-list--body-deta
+                  %ul
+                    %li 
+                      = "#{item.price}円"
+                    %li 
+                      %i.fas.fa-star
+                      0
+                  %p (税込)
+      = paginate(@items)
   %section.picup
     %h2.picup-head ピックアップブランド
     .picup-box
