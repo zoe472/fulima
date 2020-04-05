@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
   
-  def index #トップページ
+  def index
+    @item = Item.includes(:user)
   end
 
 
