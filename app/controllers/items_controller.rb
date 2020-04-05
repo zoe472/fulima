@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
   
   def index
-    @items = Item.all
+    @items = Item.includes(:seller).order("created_at DESC").page(params[:page]).per(3)
   end
 
 
