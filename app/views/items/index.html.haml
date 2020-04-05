@@ -110,6 +110,7 @@
         =link_to "#",class:"picup-box-Head-a" do
           %h3.picup-box-Head-title 新規投稿商品
       .picup-box-lists
+      - @items.each do |item|
         .picup-box-lists-list
           =link_to "#" do
             %figure.picup-box-lists-list--image
@@ -118,7 +119,8 @@
               %h3.picup-box-lists-list--body-name prodcut3
               .picup-box-lists-list--body-deta
                 %ul
-                  %li 30000円
+                  %li 
+                  = "#{item.price}円"
                   %li 
                     %i.fas.fa-star
                     0
