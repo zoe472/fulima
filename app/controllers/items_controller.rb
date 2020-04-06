@@ -6,7 +6,7 @@ class ItemsController < ApplicationController
   end
 
   def newindex
-    @items = Item.includes(:seller).page(params[:page]).per(3).order("created_at DESC")
+    @items = Item.includes(:seller).page(params[:page]).per(5).order("created_at DESC")
   end
 
 end
