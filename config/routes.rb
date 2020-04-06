@@ -16,17 +16,19 @@ Rails.application.routes.draw do
 
   resources :items do
     collection do
-      get :hoge
-      get :hige
+      get :newindex
     end
   end
+
   resources :users
+
   resources :credit, only: [:new, :index, :show] do
     collection do
       post :pay
       post :delete
     end
   end
+
   resources :mypage do
     collection do
       get :sell
@@ -38,8 +40,6 @@ Rails.application.routes.draw do
       get :sample2
     end
   end
-
-  resources :users
 
 end
 

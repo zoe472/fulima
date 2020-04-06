@@ -5,14 +5,7 @@ class ItemsController < ApplicationController
     @random = Item.includes(:seller).order("RAND()").limit(3)
   end
 
+  def newindex
+  end
 
-  def new
-    
-  end
-  def hoge
-  end
-  def hige
-  end
-  def huge
-  end
 end
