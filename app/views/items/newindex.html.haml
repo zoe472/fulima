@@ -1,23 +1,22 @@
 = render "/shared/header"
 
-%section.picup
-  .picup-box
-    .picup-box-Head
-      =link_to "#",class:"picup-box-Head-a" do
-        %h3.picup-box-Head-title 新規投稿商品
-    .picup-box-lists
+.newitem
+  .newitem-box
+    .newitem-box__Head
+      新規投稿商品
+    .newitem-box__lists
       - @items.each do |item|
-        .picup-box-lists-list
+        .newitem-box__lists-list
           =link_to "#" do
-            %figure.picup-box-lists-list--image
+            %figure.newitem-box__lists-list__image
               =image_tag 'a007.png'
-            .picup-box-lists-list--body
-              %h3.picup-box-lists-list--body-name
+            .newitem-box__lists-list__body
+              %h3.newitem-box__lists-list__body-name
                 - if item.buyer_id
                   .sold__item SOLD
                 - else 
                   = item.name
-              .picup-box-lists-list--body-deta
+              .newitem-box__lists-list__body-deta
                 %ul
                   %li
                     - if item.buyer_id
@@ -29,3 +28,4 @@
                     0
                 %p
                   (税込)
+    = paginate(@items)
