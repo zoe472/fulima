@@ -1,39 +1,4 @@
-.header
-  .header-Inner
-    .header-Inner-main
-      %h1.header-Inner-main-icon 
-        =link_to "#" do
-          = image_tag 'logo.png'
-      .header-Inner-main-searchbox  
-        %form{action:'/', method:'get'}
-          %input.header-Inner-main-searchbox-input{Placeholder:'キーワードから探す'}
-          .header-Inner-main-searchbox-sub
-            .header-Inner-main-searchbox-submit-icon
-              =image_tag 'icon-search 1.png'
-    .header-Inner-nav
-      %ul.header-Inner-nav-listsLeft
-        %li.header-Inner-nav-listsLeft__item-fast
-          =link_to "#",id:"cateBtn"do
-            カテゴリー
-        %li.header-Inner-nav-listsLeft__item
-          =link_to "#",id:"brandBtn"do
-            ブランド
-      %ul.header-Inner-nav-listsRight
-        - if user_signed_in?
-          %li.header-Inner-nav-listsRight__login-fast
-            =link_to mypage_index_path,id:"loginaBtn"do
-              マイページ
-          %li.header-Inner-nav-listsRight__login
-            =link_to  destroy_user_session_path, method: :delete,id:"loginBtn"do
-              ログアウト
-        - else 
-          %li.header-Inner-nav-listsRight__login-fast
-            =link_to new_user_session_path,id:"loginaBtn"do
-              ログイン
-          %li.header-Inner-nav-listsRight__login
-            =link_to  new_user_registration_path,id:"loginBtn"do
-              新規会員登録
-
+= render "/shared/header"
 
 .main
   %section.mainvisual
