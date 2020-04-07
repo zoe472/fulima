@@ -1,16 +1,12 @@
 class ItemsController < ApplicationController
   
-  def index #トップページ
+  def index
+    @items = Item.includes(:seller).order("created_at DESC").limit(3)
+    @random = Item.includes(:seller).order("RAND()").limit(3)
   end
 
+  def newindex
+    @items = Item.includes(:seller).page(params[:page]).per(20).order("created_at DESC")
+  end
 
-  def new
-    
-  end
-  def hoge
-  end
-  def hige
-  end
-  def huge
-  end
 end
