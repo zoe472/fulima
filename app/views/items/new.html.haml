@@ -198,15 +198,17 @@
                   %span.five-nj-jk-name-span ¥
                   .five-nj-jk-name-box
                     .five-nj-jk-name-box-x
-                      %input{type:'number',placeholder:'0'}
+                      %input{type:'number',placeholder:'0', onKeyUp: "keisan(this)"}
               .five-nj-ck
                 .five-nj-ck-data
                   .five-nj-ck-data-div 販売手数料(10%)
-                %span ー
+                %span#charge 
+                  ー
               %hr
               .five-nj-last
                 .five-nj-last-rieki 販売利益
-                %span ー
+                %span#profit 
+                  ー
               .five-nj-syu
                 %button{type:'submit',} 出品する
                 =link_to "/" do
