@@ -3,6 +3,8 @@ window.onload = function(){
   let profit = document.getElementById('profit');
 };
 function keisan($this){
-  charge.innerHTML = Math.floor($this.value * 0.1);
-  profit.innerHTML = $this.value - charge.innerHTML;
+  charge1 = Math.floor($this.value * 0.1);
+  charge.innerHTML = "¥" + charge1;
+  profit1 = $this.value - charge1;
+  profit.innerHTML = "¥" + profit1;
 };
