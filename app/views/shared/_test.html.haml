@@ -77,15 +77,25 @@
                   不適切な商品の通報
         .main__showMain__contentRight__topContent__commentBox
           %ul.main__showMain__contentRight__topContent__commentBox__commentContents
-          = form_with url: root_path, local: true do |f|
-            = f.text_area :text, class:"main__showMain__contentRight__topContent__commentBox__commentContents__comment-body"
-            %p.main__showMain__contentRight__topContent__commentBox__commentContents__noticeMsg
-              相手のことを考え丁寧なコメントを心がけましょう。
-              %br
-              不快な言葉遣い等は退会処分となる事があります。
-            %button.main__showMain__contentRight__topContent__commentBox__commentContents__commentBtn{:name => "button", :type => "submit"}
-              %i.fa.fa-comment 
-              コメントする
+          - if user_signed_in? && current_user.id == @post.seller_id
+            = link_to "/mypage/#{@post.id}", method: :delete, class: "profile__top__content__button" do
+              %i.fa.fa-trash 
+              削除する
+              
+          - else
+            = form_with url: root_path, local: true do |f|
+              = f.text_area :text, class:"main__showMain__contentRight__topContent__commentBox__commentContents__comment-body"
+              %p.main__showMain__contentRight__topContent__commentBox__commentContents__noticeMsg
+                相手のことを考え丁寧なコメントを心がけましょう。
+                %br
+                不快な言葉遣い等は退会処分となる事があります。
+              %button.main__showMain__contentRight__topContent__commentBox__commentContents__commentBtn{:name => "button", :type => "submit"}
+                %i.fa.fa-comment 
+                コメントする
+              
+                
+                
+
       %ul.main__showMain__contentRight__links
         %li 
           = link_to "#", class:"link-share link-color" do

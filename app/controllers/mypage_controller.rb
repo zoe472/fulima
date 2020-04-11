@@ -19,8 +19,13 @@ class MypageController < ApplicationController
   end
 
   def sample
+    @post = Item.find(params[:id])
   end
 
+  def destroy
+    @post = Item.find(params[:id])
+    @post.delete
+  end
   def sample2
   end
   

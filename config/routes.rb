@@ -16,16 +16,26 @@ Rails.application.routes.draw do
   end
   resources :users
 
+  # resources :shared do
+  #   member do
+  #     get :_test
+  #     delete '_test/:id' => '_test#destroy'
+  #     get :_test2
+  #   end
+  # end
+
   resources :credit
   resources :mypage do
+    member do
+      get :sample
+      get :sample2
+    end
     collection do
       get :sell
       get :purchace
       get :profile
       get :logout
       get :mail
-      get :sample
-      get :sample2
     end
   end
 end

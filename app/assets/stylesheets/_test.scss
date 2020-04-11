@@ -30,6 +30,7 @@ td {
 li {
   list-style: none;
 }
+
 .main {
   background: #f8f8f8;
   &__showMain {
@@ -194,7 +195,9 @@ li {
               width: 60%;
               font-size: 18px;
               border-radius: 100px;
+              
             }
+              
           }
         }
       }
