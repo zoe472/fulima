@@ -1,4 +1,8 @@
 class ItemsController < ApplicationController
+  rescue_from ActiveRecord::RecordNotFound do |exception|
+    render 'errors/error_404', status: :not_found
+  end
+
   before_action :set_item, only: [:sample, :sample2, :purchace, :destroy]
   
   def index

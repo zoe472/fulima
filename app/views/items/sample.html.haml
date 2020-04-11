@@ -86,7 +86,7 @@
             - if user_signed_in? && current_user.id == @item.seller_id
               = link_to "#", class:"profile__top__content__button" do
                 商品を編集
-              = link_to "/items/#{@item.id}", method: :delete, class: "profile__top__content__button" do
+              = link_to item_path(@item), method: :delete, class: "profile__top__content__button" do
                 %i.fa.fa-trash 
                 削除する
             - else
