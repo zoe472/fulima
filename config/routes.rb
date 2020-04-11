@@ -9,6 +9,12 @@ Rails.application.routes.draw do
   root to: 'items#index'
 
 
+  resources :products do
+    collection do
+      get :new
+    end
+  end
+
   resources :items do
     member do
       get :sample
@@ -17,17 +23,21 @@ Rails.application.routes.draw do
     end
     collection do
       get :finish
+      get :newindex
     end
     
     
   end
+
   resources :users
+
   resources :credit, only: [:new, :index, :show] do
     collection do
       post :pay
       post :delete
     end
   end
+
   resources :mypage do
     collection do
       get :sell
@@ -37,8 +47,6 @@ Rails.application.routes.draw do
       get :mail
     end
   end
-
-  resources :users
 
 end
 
