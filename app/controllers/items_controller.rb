@@ -50,4 +50,10 @@ class ItemsController < ApplicationController
     @items = Item.includes(:seller).page(params[:page]).per(20).order("created_at DESC")
   end
 
+  def destroy
+    @post = Item.find(params[:id])
+    @post.delete
+    redirect_to root_path
+  end
+
 end
