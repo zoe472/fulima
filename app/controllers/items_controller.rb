@@ -1,4 +1,5 @@
 class ItemsController < ApplicationController
+  before_action :set_item, only: [:sample, :sample2, :purchace, :destroy]
   
   def index
     @items = Item.includes(:seller).order("created_at DESC").limit(3)
@@ -11,7 +12,6 @@ class ItemsController < ApplicationController
   end
 
   def sample
-    @item = Item.find(params[:id])
     @categry = @item.categories.flat_map(&:name)
   end
 
@@ -22,7 +22,6 @@ class ItemsController < ApplicationController
     if @card.blank?
       redirect_to controller: :credit, action: :new
     else
-      @item = Item.find(params[:id])
       @categry = @item.categories.flat_map(&:name)
       customer = Payjp::Customer.retrieve(@card.customer_id)
       @default_card_information = customer.cards.retrieve(@card.card_id)
@@ -30,7 +29,6 @@ class ItemsController < ApplicationController
   end
 
   def purchace
-    @item = Item.find(params[:id])
     card = Card.find_by(user_id: current_user.id)
     Payjp.api_key = Rails.application.credentials.dig(:payjp, :PAYJP_SECRET_KEY)
     Payjp::Charge.create(
@@ -51,9 +49,14 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    @post = Item.find(params[:id])
-    @post.delete
+    @item.delete
     redirect_to root_path
+  end
+
+  private
+
+  def set_item
+    @item = Item.find(params[:id])
   end
 
 end
