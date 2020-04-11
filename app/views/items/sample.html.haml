@@ -84,8 +84,11 @@
         .main__showMain__contentRight__topContent__commentBox
           %ul.main__showMain__contentRight__topContent__commentBox__commentContents
             - if user_signed_in? && current_user.id == @item.seller_id
-              = link_to "#", class:"main__showMain__contentRight__topContent__commentBox__commentContents__commentBtn custom" do
+              = link_to "#", class:"profile__top__content__button" do
                 商品を編集
+              = link_to item_path(@item), method: :delete, class: "profile__top__content__button" do
+                %i.fa.fa-trash 
+                削除する
             - else
               = form_with url: root_path, local: true do |f|
                 = f.text_area :text, class:"main__showMain__contentRight__topContent__commentBox__commentContents__comment-body"
