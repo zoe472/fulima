@@ -1,8 +1,4 @@
 class ItemsController < ApplicationController
-  rescue_from ActiveRecord::RecordNotFound do |exception|
-    render 'errors/error_404', status: :not_found
-  end
-
   before_action :set_item, only: [:sample, :sample2, :purchace, :destroy]
   
   def index
@@ -53,8 +49,11 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    @item.delete
-    redirect_to root_path
+    if @item.delete
+      redirect_to root_path
+    else
+      redirect_to action: 'sample'
+    end
   end
 
   private
