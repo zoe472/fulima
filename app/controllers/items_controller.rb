@@ -17,8 +17,8 @@ class ItemsController < ApplicationController
 
   def sample2
     Payjp.api_key = Rails.application.credentials.dig(:payjp, :PAYJP_SECRET_KEY)
-    @card = Card.where(user_id: current_user.id).first
-    @address = Address.where(user_id: current_user.id).first
+    @card = Card.find_by(user_id: current_user.id)
+    @address = Address.find_by(user_id: current_user.id)
     if @card.blank?
       redirect_to controller: :credit, action: :new
     else
@@ -31,7 +31,7 @@ class ItemsController < ApplicationController
 
   def purchace
     @item = Item.find(params[:id])
-    card = Card.where(user_id: current_user.id).first
+    card = Card.find_by(user_id: current_user.id)
     Payjp.api_key = Rails.application.credentials.dig(:payjp, :PAYJP_SECRET_KEY)
     Payjp::Charge.create(
     amount: @item.price,
