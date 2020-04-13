@@ -9,4 +9,12 @@ class Item < ApplicationRecord
   has_many :pictures
   has_many :category_items
   has_many :categories, through: :category_items
+
+  def self.search(search)
+    if search
+      Item.where('name LIKE(?)', "%#{search}%")
+    else
+      Item.all
+    end
+  end
 end
