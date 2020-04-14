@@ -3,25 +3,25 @@ table {
   height: 375px;
   border-collapse: collapse;
   border: 1px solid #f8f8f8;
+  th {
+    width: 20%;
+    background-color: #eee;
+    font-weight: 400;
+    padding: 8px;
+    border: 1px solid #dedede;
+    font-size: 14px;
+    text-align: center;
+  }
+  td {
+    width: 61%;
+    padding: 15px 15px;
+    border: 1px solid #dedede;
+    font-size: 14px;
+  }
 }
-th {
-  width: 20%;
-  background-color: #eee;
-  font-weight: 400;
-  padding: 8px;
-  border: 1px solid #dedede;
-  font-size: 14px;
-  text-align: center;
-}
-td {
-  width: 61%;
-  padding: 15px 15px;
-  border: 1px solid #dedede;
-  font-size: 14px;
-}
-.link-color {
-  color: #3CCACE;
-}
+
+
+
 
 .fa {
   display: inline-block;
@@ -81,17 +81,10 @@ li {
               display: flex;
               position: relative;
               li {
-                display: flex;
                 flex-direction: column;
                 width: 560px;
                 align-items: center;
                 margin: 0 auto;
-                img {
-                  object-fit: cover;
-                  height: 346px;
-                  width: 100%;
-                  vertical-align: bottom;
-                }
                 ul{
                   display: flex;
                   justify-content: center;
@@ -205,4 +198,20 @@ li {
 .custom{
   font-size: 24px;
   padding: 10px;
+}
+
+.picture__first{
+  display:block;
+  object-fit: cover;
+  height: 346px;
+  margin: auto;
+}
+.picture__list{
+  height: 87px;
+  width: 140px;
+}
+
+.action{
+  opacity: 0.5;
+  filter: alpha(opacity=70); 
 }
