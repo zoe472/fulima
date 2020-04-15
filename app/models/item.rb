@@ -9,4 +9,7 @@ class Item < ApplicationRecord
   has_many :pictures
   has_many :category_items
   has_many :categories, through: :category_items
+
+  scope :search, -> (search){where('name LIKE(?)', "%#{search}%")}
+
 end
