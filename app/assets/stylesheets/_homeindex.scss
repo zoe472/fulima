@@ -142,7 +142,7 @@
   .mainvisual{
     width: 100%;
     height: 560px;
-    background-image: url(pc.jpg);
+    background-image: image-url("pc.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: top center;
@@ -255,7 +255,7 @@
 }
 
 .middle{
-  background-image: url(middle1.jpg);
+  background-image: image-url("middle1.jpg");
   background-position: bottom right;
   height: 400px;
   background-size: cover;
@@ -453,7 +453,7 @@
 }
 
 .app{
-  background-image: url(appin.jpg);
+  background-image: image-url("appin.jpg");
   padding: 100px 40px;
   position: relative;
   background-size: cover;
