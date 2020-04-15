@@ -8,15 +8,17 @@
             = @item.name
           .main__showMain__contentRight__topContent__itemBox__body
             %ul
-              %li 
-                =image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png"
-                %ul
-                  %li
-                    =image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png", size: "140x87"
-                  %li
-                    =image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/14/a001.png", size: "140x87"
-                  %li
-                    =image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/15/a003.png", size: "140x87"
+              %li
+                #mainImage
+                  =image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png", class: "picture__first"
+                #imageList
+                  %ul
+                    %li
+                      =image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png",class: "picture__list"
+                    %li
+                      =image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/14/a001.png",class: "picture__list"
+                    %li
+                      =image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/15/a003.png",class: "picture__list"
           .main__showMain__contentRight__topContent__itemBox__price
             %span
               ¥
@@ -101,15 +103,17 @@
                   コメントする
       %ul.main__showMain__contentRight__links
         %li 
-          = link_to "#", class:"link-share link-color" do
-            %i.fa.fa-angle-left
-            %span
-              前の商品 
+          - if @item.previous.present?
+            = link_to sample_item_path(@item.previous), class:"link-color link-share" do
+              %i.fa.fa-angle-left
+              %span
+                前の商品 
         %li
-          = link_to "#", class:"link-share link-color" do
-            %span
-              後ろの商品
-              %i.fa.fa-angle-right
+          - if @item.next.present?
+            = link_to sample_item_path(@item.next), class:"link-share link-color" do
+              %span
+                後ろの商品
+                %i.fa.fa-angle-right
       .main__showMain__contentRight__relatedItems
-        = link_to "#", class:"link-share link-color" do 
+        = link_to "#", class:"link-share link-color" do
           ベビー・キッズをもっと見る

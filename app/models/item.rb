@@ -9,6 +9,14 @@ class Item < ApplicationRecord
   has_many :pictures
   has_many :category_items
   has_many :categories, through: :category_items
+  
+  def previous
+    Item.find_by("id < ?",self.id)
+  end
+
+  def next
+    Item.find_by("id > ?", self.id)
+  end
 
   scope :search, -> (search){where('name LIKE(?)', "%#{search}%")}
 
