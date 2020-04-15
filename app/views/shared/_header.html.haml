@@ -5,11 +5,11 @@
         =link_to "#" do
           = image_tag 'logo.png'
       .header-Inner-main-searchbox  
-        %form{action:'/', method:'get'}
-          %input.header-Inner-main-searchbox-input{Placeholder:'キーワードから探す'}
-          .header-Inner-main-searchbox-sub
-            .header-Inner-main-searchbox-submit-icon
-              =image_tag 'icon-search 1.png'
+        = form_with url: search_items_path, local: true, method: :get do |f|
+          = f.text_field :keyword, class: "header-Inner-main-searchbox-input", placeholder: "キーワードから探す"
+          = button_tag type: "submit", class: "header-Inner-main-searchbox-sub-submit-icon" do
+            = image_tag 'icon-search 1.png'
+            
     .header-Inner-nav
       %ul.header-Inner-nav-listsLeft
         %li.header-Inner-nav-listsLeft__item-fast

@@ -1,0 +1,33 @@
+= render "/shared/header"
+
+.newitem
+  .newitem-box
+    .newitem-box__Head
+      = "「#{@keyword}」を含む商品一覧"
+    .newitem-box__lists
+      - @items.each do |item|
+        .newitem-box__lists-list
+          =link_to "#" do
+            %figure.newitem-box__lists-list__image
+              =image_tag 'a007.png'
+            .newitem-box__lists-list__body
+              %h3.newitem-box__lists-list__body-name
+                - if item.buyer_id
+                  .sold__item SOLD
+                - else 
+                  = item.name
+              .newitem-box__lists-list__body-deta
+                %ul
+                  %li
+                    - if item.buyer_id
+                      .sold__item 購入不可
+                    - else
+                      = "#{item.price}円"
+                  %li 
+                    %i.fas.fa-star
+                    0
+                %p
+                  (税込)
+    = paginate(@items)
+
+= render "/shared/footer"

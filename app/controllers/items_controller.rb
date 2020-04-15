@@ -56,6 +56,11 @@ class ItemsController < ApplicationController
     end
   end
 
+  def search
+    @keyword = params[:keyword]
+    @items = Item.search(params[:keyword]).page(params[:page]).per(20).order("created_at DESC")
+  end
+
   private
 
   def set_item

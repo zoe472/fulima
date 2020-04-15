@@ -17,4 +17,7 @@ class Item < ApplicationRecord
   def next
     Item.find_by("id > ?", self.id)
   end
+
+  scope :search, -> (search){where('name LIKE(?)', "%#{search}%")}
+
 end
