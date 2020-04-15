@@ -10,11 +10,6 @@ class Item < ApplicationRecord
   has_many :category_items
   has_many :categories, through: :category_items
 
-  def self.search(search)
-    if search
-      Item.where('name LIKE(?)', "%#{search}%")
-    else
-      Item.all
-    end
-  end
+  scope :search, -> (search){where('name LIKE(?)', "%#{search}%")}
+
 end
