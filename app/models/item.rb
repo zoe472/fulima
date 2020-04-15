@@ -11,10 +11,10 @@ class Item < ApplicationRecord
   has_many :categories, through: :category_items
   
   def previous
-    Item.where("id < ?",self.id).order("id DESC").first
+    Item.find_by("id < ?",self.id)
   end
 
   def next
-    Item.where("id > ?", self.id).order("id ASC").first
+    Item.find_by("id > ?", self.id)
   end
 end
