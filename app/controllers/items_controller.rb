@@ -13,6 +13,8 @@ class ItemsController < ApplicationController
 
   def sample
     @categry = @item.categories.flat_map(&:name)
+    @comment = Comment.new
+    @comments = @item.comments.includes(:user)
   end
 
   def sample2
