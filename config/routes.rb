@@ -26,8 +26,7 @@ Rails.application.routes.draw do
       get :newindex
       get 'search'
     end
-    
-    
+    resources :comments, only: :create
   end
 
   resources :users

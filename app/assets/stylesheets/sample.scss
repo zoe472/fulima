@@ -165,6 +165,63 @@ li {
           background-color: #fff;
           margin: 10px 0;
           text-align: center;
+          &__commentlist{
+            margin: 1.5em 0 0;
+            &__box{
+              display: flex;
+            }
+            &__picture{
+              overflow: hidden;
+              border-radius: 50%;
+              width: 32px;
+              height: 32px;
+              margin: 10px 0 0;
+              vertical-align: bottom;
+            }
+            &__name{
+              font-size: 6px;
+            }
+            &__body{
+              position: relative;
+              width: 600px;
+              padding: 20px;
+              background-color: #eef0f4;
+              margin-left: 20px;
+              margin-bottom: 20px;
+            }
+            &__body::before{
+              content: '';
+              position: absolute;
+              display: block;
+              width: 0;
+              height: 0;
+              left: -15px;
+              top: 10px;
+              border-right: 15px solid #eef0f4;
+              border-top: 15px solid transparent;
+              border-bottom: 15px solid transparent;
+            }
+            &__mybody{
+              position: relative;
+              width: 600px;
+              padding: 20px;
+              background-color: #ffd885;
+              margin-right: 20px;
+              margin-bottom: 20px;
+            }
+            &__mybody::before{
+              content: '';
+              position: absolute;
+              display: block;
+              width: 0;
+              height: 0;
+              right: -15px;
+              top: 10px;
+              border-left: 15px solid #ffd885;
+              border-top: 15px solid transparent;
+              border-bottom: 15px solid transparent;
+            }
+          }
           &__commentContents{
             &__comment-body {
               width: 97%;
@@ -214,4 +271,11 @@ li {
 .action{
   opacity: 0.5;
   filter: alpha(opacity=70); 
+}
+
+.left{
+  margin-left: 40px;
+}
+.right{
+  margin-right: 40px;
 }

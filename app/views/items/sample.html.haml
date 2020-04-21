@@ -84,23 +84,48 @@
                   %i.fa.fa-flag
                   不適切な商品の通報
         .main__showMain__contentRight__topContent__commentBox
+          -if @comments
+            %ul.main__showMain__contentRight__topContent__commentBox__commentlist
+              - @comments.each do |comment|
+                -if comment.user_id == current_user.id
+                  %li.main__showMain__contentRight__topContent__commentBox__commentlist__box.left
+                    .main__showMain__contentRight__topContent__commentBox__commentlist__mybody
+                      = comment.sentence
+                    .main__showMain__contentRight__topContent__commentBox__commentlist__user
+                      = image_tag "member_photo_noimage_thumb.png", class: "main__showMain__contentRight__topContent__commentBox__commentlist__picture"
+                      .main__showMain__contentRight__topContent__commentBox__commentlist__name
+                        - if comment.user_id == @item.seller_id
+                          出品者
+                        -else
+                          = comment.user.nickname
+                - else
+                  %li.main__showMain__contentRight__topContent__commentBox__commentlist__box.right
+                    .main__showMain__contentRight__topContent__commentBox__commentlist__user
+                      = image_tag "member_photo_noimage_thumb.png", class: "main__showMain__contentRight__topContent__commentBox__commentlist__picture"
+                      .main__showMain__contentRight__topContent__commentBox__commentlist__name
+                        - if comment.user_id == @item.seller_id
+                          出品者
+                        -else
+                          = comment.user.nickname
+                    .main__showMain__contentRight__topContent__commentBox__commentlist__body
+                      = comment.sentence
+
           %ul.main__showMain__contentRight__topContent__commentBox__commentContents
+            = form_with(model: [@item,@comment], local: true, id: "new_comment") do |f|
+              %p.main__showMain__contentRight__topContent__commentBox__commentContents__noticeMsg
+                相手のことを考え丁寧なコメントを心がけましょう。
+                %br
+                不快な言葉遣い等は退会処分となる事があります。
+              = f.text_area :sentence, class: "textbox main__showMain__contentRight__topContent__commentBox__commentContents__comment-body"              
+              = button_tag type: 'submit', class: "form__submit main__showMain__contentRight__topContent__commentBox__commentContents__commentBtn" do
+                %i.fa.fa-comment 
+                コメントする
             - if user_signed_in? && current_user.id == @item.seller_id
               = link_to "#", class:"profile__top__content__button" do
                 商品を編集
               = link_to item_path(@item), method: :delete, class: "profile__top__content__button" do
                 %i.fa.fa-trash 
                 削除する
-            - else
-              = form_with url: root_path, local: true do |f|
-                = f.text_area :text, class:"main__showMain__contentRight__topContent__commentBox__commentContents__comment-body"
-                %p.main__showMain__contentRight__topContent__commentBox__commentContents__noticeMsg
-                  相手のことを考え丁寧なコメントを心がけましょう。
-                  %br
-                  不快な言葉遣い等は退会処分となる事があります。
-                %button.main__showMain__contentRight__topContent__commentBox__commentContents__commentBtn{:name => "button", :type => "submit"}
-                  %i.fa.fa-comment 
-                  コメントする
       %ul.main__showMain__contentRight__links
         %li 
           - if @item.previous.present?
