@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_04_054807) do
+ActiveRecord::Schema.define(version: 2020_04_12_072850) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "familyname", null: false
@@ -47,6 +47,7 @@ ActiveRecord::Schema.define(version: 2020_04_04_054807) do
     t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "ancestry"
   end
 
   create_table "category_items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -100,6 +101,15 @@ ActiveRecord::Schema.define(version: 2020_04_04_054807) do
     t.string "image", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "item_id"
+    t.index ["item_id"], name: "index_pictures_on_item_id"
+  end
+
+  create_table "todouhukens", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "prefecture_id"
+    t.string "city"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -121,4 +131,5 @@ ActiveRecord::Schema.define(version: 2020_04_04_054807) do
   end
 
   add_foreign_key "addresses", "users"
+  add_foreign_key "pictures", "items"
 end

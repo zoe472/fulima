@@ -1,5 +1,5 @@
 class Item < ApplicationRecord
-  validates :name, :description, :size, :status, :charge, :region, :price, :date, :seller_id, :buyer_id, :brand_id, presence: true
+  # validates :name, :description, :size, :status, :charge, :region, :price, :date, :seller_id, :buyer_id, :brand_id, presence: true
 
   belongs_to :seller, foreign_key: "seller_id", class_name: "User"
   belongs_to :buyer, foreign_key: "buyer_id", class_name: "User"
@@ -7,6 +7,7 @@ class Item < ApplicationRecord
   has_many :goods
   has_many :comments
   has_many :pictures
+  accepts_nested_attributes_for :pictures, allow_destroy: true
   has_many :category_items
   has_many :categories, through: :category_items
 end

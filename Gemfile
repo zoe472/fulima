@@ -91,3 +91,6 @@ gem 'jquery-rails'
 gem 'pry-rails'
 gem 'active_hash'
 
+gem 'carrierwave'
+gem 'mini_magick'
+gem 'ancestry'
