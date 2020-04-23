@@ -8,7 +8,17 @@ class ItemsController < ApplicationController
 
 
   def new
-    
+    @item = Item.new
+    @todohuken = Prefecture.all
+  end
+
+  def create
+    @item = Item.new(item_params)
+    if @item.save
+      redirect_to root_path
+    else
+      render :new
+    end
   end
 
   def sample
@@ -67,6 +77,10 @@ class ItemsController < ApplicationController
 
   def set_item
     @item = Item.find(params[:id])
+  end
+
+  def item_params
+    params.require(:item).permit(:name, :description, :size, :status, :charge, :region, :price, :date, :brand).merge(seller_id: current_user.id)
   end
 
 end
