@@ -73,6 +73,7 @@
   
 // });
 
+console.log('こんばんは');
 $(document).on('turbolinks:load', function(){
   $(function(){
 
@@ -96,7 +97,6 @@ $(document).on('turbolinks:load', function(){
       //プレビューボックスのwidthを取得し、maxから引くことでラベルのwidthを決定
       var prevContent = $('.label-content').prev();
       labelWidth = (620 - $(prevContent).css('width').replace(/[^0-9]/g, ''));
-      console.log(labelWidth)
       $('.label-content').css('width', labelWidth);
     }
 
@@ -106,7 +106,7 @@ $(document).on('turbolinks:load', function(){
       //hidden-fieldのidの数値のみ取得
       var id = $(this).attr('id').replace(/[^0-9]/g, '');
       //labelボックスのidとforを更新
-      $('.label-box').attr({id: `label-box--${id}`,for: `item_pictures_attributes_${id}_image`});
+      $('label-box').attr({id:`label-box--${id}`,for: `item_pictures_attributes_${id}_image`});
       //選択したfileのオブジェクトを取得
       var file = this.files[0];
       var reader = new FileReader();
@@ -167,4 +167,4 @@ $(document).on('turbolinks:load', function(){
       }
     });
   });
-})
+});
