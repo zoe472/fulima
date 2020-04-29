@@ -7,20 +7,23 @@
       .new-mains-main
         %form.new-mains-main-form{action:'/', method:'get'}
           .new-mains-main-form-gm
-            .new-mains-main-form-gm-sc
-              .new-mains-main-form-gm-sc-name
-                .new-mains-main-form-gm-sc-name-img
-                  = f.label :image, "出品画像"
-                  %span.new-mains-main-form-gm-sc-name-img-hi 必須
-                %p.new-mains-main-form-gm-sc-name-sy 最大5枚までアップロードできます
-                #image-box-1
-                  .item-num-0#image-box__container
-                    = f.fields_for :pictures do |i|
-                      .input-area
-                        %label.form
-                          = i.file_field :image, type: 'file',  value:"", id:"img-file"
-                          %label{for: "img-file"}
-                          .fas.fa-camera
+            .new-mains-main-form-gm-sc-name-img
+              = f.label :image, "出品画像"
+              %span.new-mains-main-form-gm-sc-name-img-hi 必須
+            %p.new-mains-main-form-gm-sc-name-sy 最大5枚までアップロードできます
+            .post__drop__box__container
+              .prev-content
+              .label-content
+                %label{for: "item_pictures_attributes_0_image", class: "label-box", id: "label-box--0"}
+                  %pre.label-box__text-visible クリックしてファイルをアップロード
+                .hidden-content
+                  = f.fields_for :pictures do |i|
+                    = i.file_field :image, class: "hidden-field"
+                    %input{class:"hidden-field", type: "file", name: "item[pictures_attributes][1][image]", id: "item_pictures_attributes_1_image" }
+                    %input{class:"hidden-field", type: "file", name: "item[pictures_attributes][2][image]", id: "item_pictures_attributes_2_image" }
+                    %input{class:"hidden-field", type: "file", name: "item[pictures_attributes][3][image]", id: "item_pictures_attributes_3_image" }
+                    %input{class:"hidden-field", type: "file", name: "item[pictures_attributes][4][image]", id: "item_pictures_attributes_4_image" }
+                        
           %hr.tw
           .two
             .two-style
@@ -28,6 +31,10 @@
                 .two-style-name-box
                 = f.label :name, "商品名"
                 %span.two-style-name-ss 必須
+                - if @item.errors.any?
+                  %ul
+                    %li.error__messages
+                      = @item.errors.full_messages_for(:name).first
               .two-style-fail
                 .two-style-fail-und
                   = f.text_field :name,placeholder:'キーワードから探す',class:'two-style-fail-und-p'
@@ -64,7 +71,15 @@
                   %span 任意
                 .three-box-body-two
                   .three-box-body-two-style
-                    = f.text_field :brand_id, placeholder: "例）シャネル"
+                    = f.text_field :brand, placeholder: "例）シャネル"
+            .three-box
+              .three-box-body
+                .three-box-body-br
+                  %label サイズ
+                  %span 任意
+                .three-box-body-two
+                  .three-box-body-two-style
+                    = f.text_field :size, placeholder: "例）S"
             .three-jo
               .three-jo-bo
                 .three-jo-bo-name
@@ -84,10 +99,7 @@
                   %span 必須
                 .for-style-body-sele
                   .for-style-body-sele-tara
-                    %select
-                      %option{label: '選択してください'}
-                      %option{label: '送料込み（出品者負担）',valu:'1'}
-                      %option{label: '着払い（購入者負担）',valu:'2'}
+                    = f.select :charge, [["選択してください",0],["送料込み（出品者負担）",1],["着払い（購入者負担）", 2]]
                     =image_tag 'caret-down-solid.svg'
             .for-style
               .for-style-body
@@ -96,10 +108,7 @@
                   %span 必須
                 .for-style-body-sele
                   .for-style-body-sele-tara
-                    %select.name-address-input
-                      - @todohuken.each do |address| 
-                        %option{:value=> ""} 
-                          = address.name
+                    = f.collection_select :region, Prefecture.all, :id, :name
                     =image_tag 'caret-down-solid.svg'
             .for-style
               .for-style-body
@@ -128,7 +137,7 @@
                   %span.five-nj-jk-name-span ¥
                   .five-nj-jk-name-box
                     .five-nj-jk-name-box-x
-                      = f.number_field :price
+                      = f.number_field :price, onKeyUp:"keisan(this)"
               .five-nj-ck
                 .five-nj-ck-data
                   .five-nj-ck-data-div 販売手数料(10%)
@@ -138,7 +147,7 @@
                 .five-nj-last-rieki 販売利益
                 %span ー
               .five-nj-syu
-                %button{type:'submit'} 出品する
+                =f.submit "出品する",class:'button'
                 =link_to "/" do
                   もどる
               %p.five-nj-p 禁止されている行為および出品物を必ずご確認ください。偽ブランド品や盗品物などの販売は犯罪であり、法律により処罰される可能性があります。 また、出品をもちまして加盟店規約に同意したことになります。

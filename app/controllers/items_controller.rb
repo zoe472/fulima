@@ -8,7 +8,6 @@ class ItemsController < ApplicationController
     @item = Item.new
     @item.pictures.new
     @todohuken = Prefecture.all
-    
   end
 
   def create
@@ -16,9 +15,7 @@ class ItemsController < ApplicationController
     if @item.save
       redirect_to root_path
     else
-      redirect_to root_path
-    # Item.create(item_params)
-    # redirect_to root_path
+      render :new
     end
   end
 
@@ -32,6 +29,6 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:name, :price,:description,pictures_attributes: [:image])
+    params.require(:item).permit(:name, :description, :size, :status, :charge, :region, :price, :date, :brand,pictures_attributes: [:image]).merge(seller_id: current_user.id)
   end
 end
