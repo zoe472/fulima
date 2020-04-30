@@ -44,6 +44,10 @@
                   = f.label :description, "商品の説明"
                   %spa.two-for-body-form-sp 必須
                 = f.text_area :description ,placeholder:'商品の説明(必須 1,000文字以内)(色、素材、重さ、定価、注意点など)',class:'two-for-body-forms'
+                  - if @item.errors.any?
+                  %ul
+                    %li.error__messages
+                      = @item.errors.full_messages_for(:description).first
                 .two-for-body-left
                   %span 0 
                   %text /
@@ -56,6 +60,10 @@
               .three-sy-body
                 .three-sy-body-cate
                   = f.label :category_id, "カテゴリー"
+                  - if @item.errors.any?
+                    %ul
+                      %li.error__messages
+                        = @item.errors.full_messages_for(:category_id).first
                   %span  必須
                 .three-sy-body-co
                   .three-sy-body-co-cere
@@ -72,6 +80,10 @@
                 .three-box-body-two
                   .three-box-body-two-style
                     = f.text_field :brand, placeholder: "例）シャネル"
+                    - if @item.errors.any?
+                      %ul
+                        %li.error__messages
+                          = @item.errors.full_messages_for(:brand).first
             .three-box
               .three-box-body
                 .three-box-body-br
@@ -80,11 +92,19 @@
                 .three-box-body-two
                   .three-box-body-two-style
                     = f.text_field :size, placeholder: "例）S"
+                    - if @item.errors.any?
+                      %ul
+                        %li.error__messages
+                          = @item.errors.full_messages_for(:size).first
             .three-jo
               .three-jo-bo
                 .three-jo-bo-name
                   .three-jo-bo-name-sele
                     = f.select :status, [["選択してください",0],["新品、未使用", 1], ["未使用に近い", 2], ["目立った傷や汚れなし", 3],["やや傷や汚れあり", 4], ["傷や汚れあり", 5], ["全体的に状態が悪い", 6]]
+                    - if @item.errors.any?
+                      %ul
+                        %li.error__messages
+                          = @item.errors.full_messages_for(:status).first
                     =image_tag 'caret-down-solid.svg'
           %hr.tree-a
 
@@ -100,6 +120,10 @@
                 .for-style-body-sele
                   .for-style-body-sele-tara
                     = f.select :charge, [["選択してください",0],["送料込み（出品者負担）",1],["着払い（購入者負担）", 2]]
+                    - if @item.errors.any?
+                      %ul
+                        %li.error__messages
+                          = @item.errors.full_messages_for(:charge).first
                     =image_tag 'caret-down-solid.svg'
             .for-style
               .for-style-body
@@ -109,6 +133,10 @@
                 .for-style-body-sele
                   .for-style-body-sele-tara
                     = f.collection_select :region, Prefecture.all, :id, :name
+                    - if @item.errors.any?
+                      %ul
+                        %li.error__messages
+                          = @item.errors.full_messages_for(:region).first
                     =image_tag 'caret-down-solid.svg'
             .for-style
               .for-style-body
@@ -118,6 +146,10 @@
                 .for-style-body-sele
                   .for-style-body-sele-tara
                     = f.select :date, [["選択してください",0],["1~2日で発送", 1], ["2~3日で発送", 2], ["4~7日で発送", 3]]
+                    - if @item.errors.any?
+                      %ul
+                        %li.error__messages
+                          = @item.errors.full_messages_for(:date).first
                     =image_tag 'caret-down-solid.svg'
           %hr.tree-a
 
@@ -138,6 +170,10 @@
                   .five-nj-jk-name-box
                     .five-nj-jk-name-box-x
                       = f.number_field :price, onKeyUp:"keisan(this)"
+                      - if @item.errors.any?
+                        %ul
+                          %li.error__messages
+                            = @item.errors.full_messages_for(:price).first
               .five-nj-ck
                 .five-nj-ck-data
                   .five-nj-ck-data-div 販売手数料(10%)
