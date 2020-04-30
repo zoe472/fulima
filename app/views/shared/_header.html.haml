@@ -1,0 +1,35 @@
+.header
+  .header-Inner
+    .header-Inner-main
+      %h1.header-Inner-main-icon 
+        =link_to "#" do
+          = image_tag 'logo.png'
+      .header-Inner-main-searchbox  
+        = form_with url: search_items_path, local: true, method: :get do |f|
+          = f.text_field :keyword, class: "header-Inner-main-searchbox-input", placeholder: "キーワードから探す"
+          = button_tag type: "submit", class: "header-Inner-main-searchbox-sub-submit-icon" do
+            = image_tag 'icon-search 1.png'
+            
+    .header-Inner-nav
+      %ul.header-Inner-nav-listsLeft
+        %li.header-Inner-nav-listsLeft__item-fast
+          =link_to "#",id:"cateBtn"do
+            カテゴリー
+        %li.header-Inner-nav-listsLeft__item
+          =link_to "#",id:"brandBtn"do
+            ブランド
+      %ul.header-Inner-nav-listsRight
+        - if user_signed_in?
+          %li.header-Inner-nav-listsRight__login-fast
+            =link_to mypage_index_path,id:"loginaBtn"do
+              マイページ
+          %li.header-Inner-nav-listsRight__login
+            =link_to  destroy_user_session_path, method: :delete,id:"loginBtn"do
+              ログアウト
+        - else 
+          %li.header-Inner-nav-listsRight__login-fast
+            =link_to new_user_session_path,id:"loginaBtn"do
+              ログイン
+          %li.header-Inner-nav-listsRight__login
+            =link_to  new_user_registration_path,id:"loginBtn"do
+              新規会員登録
