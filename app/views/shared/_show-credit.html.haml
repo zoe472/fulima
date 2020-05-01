@@ -8,6 +8,6 @@
         %ul
       %setion.credit__addcard
         .credit__content
-          = link_to new_credit_path, class:"profile__top__content__button link-share" do
+          = link_to new_credit_path,data: {"turbolinks" => false}, class:"profile__top__content__button link-share" do
             %i.fas.fa-credit-card
             クレジットカードを追加する
