@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:sample, :sample2, :purchace, :destroy]
+  before_action :set_item, only: [:sample, :sample2, :purchace, :destroy, :edit, :update]
  
   
   def index
@@ -20,6 +20,17 @@ class ItemsController < ApplicationController
       redirect_to root_path
     else
       render :new
+    end
+  end
+
+  def edit
+  end
+
+  def update
+    if @item.update(item_update_params)
+      redirect_to root_path
+    else
+      redirect_to edit_item_path(@item)
     end
   end
 
@@ -63,14 +74,10 @@ class ItemsController < ApplicationController
     @items = Item.includes(:seller).page(params[:page]).per(20).order("created_at DESC")
   end
 
-  private
 
-  def item_params
-    params.require(:item).permit(:name, :description, :size, :status, :charge, :region, :price, :date, :brand,pictures_attributes: [:image]).merge(seller_id: current_user.id)
-  end
 
   def destroy
-    if @item.delete
+    if @item.destroy
       redirect_to root_path
     else
       redirect_to action: 'sample'
@@ -82,10 +89,22 @@ class ItemsController < ApplicationController
     @items = Item.search(params[:keyword]).page(params[:page]).per(20).order("created_at DESC")
   end
 
-end
-  private
+private
+
+  def item_params
+    params.require(:item).permit(:name, :description, :size, :status, :charge, :region, :price, :date, :brand, pictures_attributes: [:image]).merge(seller_id: current_user.id)
+  end
+
+  def item_update_params
+    params.require(:item).permit(:name, :description, :size, :status, :charge, :region, :price, :date, :brand,[pictures_attributes: [:image, :_destroy, :id]]).merge(seller_id: current_user.id)
+  end
 
   def set_item
     @item = Item.find(params[:id])
   end
+
+end
+
+
+  
 
