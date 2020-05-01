@@ -72,8 +72,6 @@
 //   })
   
 // });
-
-console.log('こんばんは');
 $(document).on('turbolinks:load', function(){
   $(function(){
 
