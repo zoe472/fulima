@@ -1,3 +1,144 @@
-.wrapper
-  .all-content
-    = render "shared/test"
+.main
+  .main__contentLeftqq
+  .main__showMain
+    .main__showMain__contentRight
+      .main__showMain__contentRight__topContent
+        .main__showMain__contentRight__topContent__itemBox
+          %h2.main__showMain__contentRight__topContent__itemBox__name 
+            = @item.name
+          .main__showMain__contentRight__topContent__itemBox__body
+            %ul
+              %li
+                #mainImage
+                  =image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png", class: "picture__first"
+                #imageList
+                  %ul
+                    %li
+                      =image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png",class: "picture__list"
+                    %li
+                      =image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/14/a001.png",class: "picture__list"
+                    %li
+                      =image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/15/a003.png",class: "picture__list"
+          .main__showMain__contentRight__topContent__itemBox__price
+            %span
+              ¥
+              = @item.price
+            .main__showMain__contentRight__topContent__itemBox__price-detail
+              %span
+                (税込）
+              %span
+                送料込み
+          .main__showMain__contentRight__topContent__itemBox__itemDetail 
+            - unless user_signed_in? && current_user.id == @item.seller_id || @item.buyer_id.present?
+              = link_to sample2_item_path(@item), class:"profile__top__content__button" do
+                商品を購入
+            
+          .main__showMain__contentRight__topContent__itemBox__table
+            %table
+              %tbody
+                %tr
+                  %th 出品者
+                  %td 
+                    = @item.seller.nickname
+                %tr
+                  %th カテゴリー
+                  %td 
+                    - @categry.each do |categry|
+                      = link_to "#", class:"link-share link-color" do
+                        = categry
+                      %br
+                %tr
+                  %th ブランド
+                  %td
+                    = @item.brand.name
+                %tr
+                  %th 商品のサイズ
+                  %td
+                    - if @item.size.present?
+                      = @item.size
+                %tr
+                  %th 商品の状態
+                  %td 
+                    = @item.status
+                %tr
+                  %th 配送料の負担
+                  %td 
+                    = @item.charge
+                %tr 
+                  %th 発送元の地域
+                  %td 
+                    = link_to "#", class:"link-share link-color" do
+                      = @item.region
+                %tr 
+                  %th 発送日の目安
+                  %td 
+                    = @item.date
+          .main__showMain__contentRight__topContent__itemBox__optionalArea
+            %ul
+              %li.main__showMain__contentRight__topContent__itemBox__optionalArea__likeBtn
+                %i.fa.fa-star
+                お気に入り 0
+            %ul.main__showMain__contentRight__topContent__itemBox__optionalArea__optional
+              %li.main__showMain__contentRight__topContent__itemBox__optionalArea__optional__optionalBtn
+                = link_to "#", class:"link-share" do
+                  %i.fa.fa-flag
+                  不適切な商品の通報
+        .main__showMain__contentRight__topContent__commentBox
+          -if @comments
+            %ul.main__showMain__contentRight__topContent__commentBox__commentlist
+              - @comments.each do |comment|
+                -if comment.user_id == current_user.id
+                  %li.main__showMain__contentRight__topContent__commentBox__commentlist__box.left
+                    .main__showMain__contentRight__topContent__commentBox__commentlist__mybody
+                      = comment.sentence
+                    .main__showMain__contentRight__topContent__commentBox__commentlist__user
+                      = image_tag "member_photo_noimage_thumb.png", class: "main__showMain__contentRight__topContent__commentBox__commentlist__picture"
+                      .main__showMain__contentRight__topContent__commentBox__commentlist__name
+                        - if comment.user_id == @item.seller_id
+                          出品者
+                        -else
+                          = comment.user.nickname
+                - else
+                  %li.main__showMain__contentRight__topContent__commentBox__commentlist__box.right
+                    .main__showMain__contentRight__topContent__commentBox__commentlist__user
+                      = image_tag "member_photo_noimage_thumb.png", class: "main__showMain__contentRight__topContent__commentBox__commentlist__picture"
+                      .main__showMain__contentRight__topContent__commentBox__commentlist__name
+                        - if comment.user_id == @item.seller_id
+                          出品者
+                        -else
+                          = comment.user.nickname
+                    .main__showMain__contentRight__topContent__commentBox__commentlist__body
+                      = comment.sentence
+
+          %ul.main__showMain__contentRight__topContent__commentBox__commentContents
+            = form_with(model: [@item,@comment], local: true, id: "new_comment") do |f|
+              %p.main__showMain__contentRight__topContent__commentBox__commentContents__noticeMsg
+                相手のことを考え丁寧なコメントを心がけましょう。
+                %br
+                不快な言葉遣い等は退会処分となる事があります。
+              = f.text_area :sentence, class: "textbox main__showMain__contentRight__topContent__commentBox__commentContents__comment-body"              
+              = button_tag type: 'submit', class: "form__submit main__showMain__contentRight__topContent__commentBox__commentContents__commentBtn" do
+                %i.fa.fa-comment 
+                コメントする
+            - if user_signed_in? && current_user.id == @item.seller_id
+              = link_to "#", class:"profile__top__content__button" do
+                商品を編集
+              = link_to item_path(@item), method: :delete, class: "profile__top__content__button" do
+                %i.fa.fa-trash 
+                削除する
+      %ul.main__showMain__contentRight__links
+        %li 
+          - if @item.previous.present?
+            = link_to sample_item_path(@item.previous), class:"link-color link-share" do
+              %i.fa.fa-angle-left
+              %span
+                前の商品 
+        %li
+          - if @item.next.present?
+            = link_to sample_item_path(@item.next), class:"link-share link-color" do
+              %span
+                後ろの商品
+                %i.fa.fa-angle-right
+      .main__showMain__contentRight__relatedItems
+        = link_to "#", class:"link-share link-color" do
+          ベビー・キッズをもっと見る

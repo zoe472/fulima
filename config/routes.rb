@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   end
   root to: 'items#index'
 
+
   resources :products do
     collection do
       get :new
@@ -15,18 +16,28 @@ Rails.application.routes.draw do
   end
 
   resources :items do
-    collection do
-      get :hoge
-      get :hige
+    member do
+      get :sample
+      get :sample2
+      post :purchace
     end
+    collection do
+      get :finish
+      get :newindex
+      get 'search'
+    end
+    resources :comments, only: :create
   end
+
   resources :users
+
   resources :credit, only: [:new, :index, :show] do
     collection do
       post :pay
       post :delete
     end
   end
+
   resources :mypage do
     collection do
       get :sell
@@ -34,12 +45,8 @@ Rails.application.routes.draw do
       get :profile
       get :logout
       get :mail
-      get :sample
-      get :sample2
     end
   end
-
-  resources :users
 
 end
 

@@ -39,13 +39,16 @@
           height: 36px;
           padding: 0 0 0 5px;
         }  
-          &-sub{
-            width: 26px;
-            border: 0;
-            cursor: pointer;
-            background-color: #3CCACE;
-            padding: 8px;
-          }
+        
+        &-sub-submit-icon{
+          border: 0;
+          width: 40px;
+          height: 40px;
+          background-color: #3CCACE;
+          cursor: pointer;
+          padding: 8px;
+        }
+          
           img{
             width: 100%;
             vertical-align: bottom;
@@ -139,7 +142,7 @@
   .mainvisual{
     width: 100%;
     height: 560px;
-    background-image: url(pc.jpg);
+    background-image: image-url("pc.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: top center;
@@ -252,7 +255,7 @@
 }
 
 .middle{
-  background-image: url(middle1.jpg);
+  background-image: image-url("middle1.jpg");
   background-position: bottom right;
   height: 400px;
   background-size: cover;
@@ -405,6 +408,10 @@
             font-size: 16px;
             text-align: left;
             margin: 0;
+
+            .sold__item{
+              color: red;
+            }
           }
           &-deta{
             font-size: 16px;
@@ -419,6 +426,10 @@
         margin: 0;
         padding: 0;
         height: 24px;
+
+        .sold__item{
+          color: red;
+        }
       }
       a{
         background-color: #fff;
@@ -442,7 +453,7 @@
 }
 
 .app{
-  background-image: url(appin.jpg);
+  background-image: image-url("appin.jpg");
   padding: 100px 40px;
   position: relative;
   background-size: cover;
