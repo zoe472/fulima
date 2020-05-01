@@ -1,15 +1,29 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:sample, :sample2, :purchace, :destroy]
+ 
   
   def index
     @items = Item.includes(:seller).order("created_at DESC").limit(3)
     @random = Item.includes(:seller).order("RAND()").limit(3)
   end
 
+  end
 
   def new
-    
+    @item = Item.new
+    @item.pictures.new
+    @todohuken = Prefecture.all
   end
+
+  def create
+    @item = Item.new(item_params)
+    if @item.save
+      redirect_to root_path
+    else
+      render :new
+    end
+  end
+
 
   def sample
     @categry = @item.categories.flat_map(&:name)
@@ -50,6 +64,12 @@ class ItemsController < ApplicationController
     @items = Item.includes(:seller).page(params[:page]).per(20).order("created_at DESC")
   end
 
+  private
+
+  def item_params
+    params.require(:item).permit(:name, :description, :size, :status, :charge, :region, :price, :date, :brand,pictures_attributes: [:image]).merge(seller_id: current_user.id)
+  end
+
   def destroy
     if @item.delete
       redirect_to root_path
@@ -69,4 +89,3 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
   end
 
-end
