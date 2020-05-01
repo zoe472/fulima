@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:sample, :sample2, :purchace, :destroy]
+  before_action :set_item, only: [:sample, :sample2, :purchace, :destroy, :edit, :update]
  
   
   def index
@@ -24,13 +24,14 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    @item = Item.find(params[:id])
   end
 
   def update
-    item = Item.find(params[:id])
-    item.update(item_update_params)
-    redirect_to root_path
+    if @item.update(item_update_params)
+      redirect_to root_path
+    else
+      redirect_to edit_item_path(@item)
+    end
   end
 
 
