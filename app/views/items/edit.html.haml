@@ -1,4 +1,3 @@
-
 .new
   =form_for @item do |f|
     .new-top
@@ -13,17 +12,24 @@
             %p.new-mains-main-form-gm-sc-name-sy 最大5枚までアップロードできます
             .post__drop__box__container
               .prev-content
+                - @item.pictures.each do |image|
+                  .preview-box
+                    .upper-box
+                      = image_tag image.image.url, width: "112", height: "112", alt: "preview"
+                    .lower-box
+                      .delete-box
+                        .delete-btn
+                          %span 削除
               .label-content
-                %label{for: "item_pictures_attributes_0_image", class: "label-box", id: "label-box--0"}
+                %label{for: "item_pictures_attributes_#{@item.pictures.length}_image", class: "label-box", id: "label-box--#{@item.pictures.length}"}
                   %pre.label-box__text-visible クリックしてファイルをアップロード
               .hidden-content
                 = f.fields_for :pictures do |i|
                   = i.file_field :image, class: "hidden-field"
-                  %input{class:"hidden-field", type: "file", name: "item[pictures_attributes][1][image]", id: "item_pictures_attributes_1_image" }
-                  %input{class:"hidden-field", type: "file", name: "item[pictures_attributes][2][image]", id: "item_pictures_attributes_2_image" }
-                  %input{class:"hidden-field", type: "file", name: "item[pictures_attributes][3][image]", id: "item_pictures_attributes_3_image" }
-                  %input{class:"hidden-field", type: "file", name: "item[pictures_attributes][4][image]", id: "item_pictures_attributes_4_image" }
-                        
+                  = i.check_box :_destroy, class: "hidden-checkbox"
+                - @item.pictures.length.upto(4) do |i|
+                  %input{name: "item[pictures_attributes][#{i}][image]", id: "item_pictures_attributes_#{i}_image", class:"hidden-field", type:"file"}
+                     
           %hr.tw
           .two
             .two-style
@@ -185,7 +191,7 @@
                 %span#profit 
                   ー
               .five-nj-syu
-                =f.submit "出品する",class:'button'
+                =f.submit "更新する",class:'button'
                 =link_to "/" do
                   もどる
               %p.five-nj-p 禁止されている行為および出品物を必ずご確認ください。偽ブランド品や盗品物などの販売は犯罪であり、法律により処罰される可能性があります。 また、出品をもちまして加盟店規約に同意したことになります。

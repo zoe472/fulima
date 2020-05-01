@@ -10,15 +10,13 @@
             %ul
               %li
                 #mainImage
-                  =image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png", class: "picture__first"
+                  = image_tag @item.pictures.first.image.url, class: "picture__first"
                 #imageList
                   %ul
-                    %li
-                      =image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png",class: "picture__list"
-                    %li
-                      =image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/14/a001.png",class: "picture__list"
-                    %li
-                      =image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/15/a003.png",class: "picture__list"
+                    - @item.pictures.each do |item|
+                      %li
+                        = image_tag item.image.url,class: "picture__list"
+                    
           .main__showMain__contentRight__topContent__itemBox__price
             %span
               ¥
@@ -48,9 +46,10 @@
                         = categry
                       %br
                 %tr
-                  %th ブランド
-                  %td
-                    = @item.brand.name
+                  - if @item.brand.present?
+                    %th ブランド
+                    %td
+                      = @item.brand.name
                 %tr
                   %th 商品のサイズ
                   %td
@@ -121,7 +120,7 @@
                 %i.fa.fa-comment 
                 コメントする
             - if user_signed_in? && current_user.id == @item.seller_id
-              = link_to "#", class:"profile__top__content__button" do
+              = link_to edit_item_path(@item), class:"profile__top__content__button" do
                 商品を編集
               = link_to item_path(@item), method: :delete, class: "profile__top__content__button" do
                 %i.fa.fa-trash 

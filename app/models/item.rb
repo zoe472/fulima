@@ -7,7 +7,7 @@ class Item < ApplicationRecord
   belongs_to :buyer, foreign_key: "buyer_id", class_name: "User", optional: true
   has_many :goods
   has_many :comments
-  has_many :pictures
+  has_many :pictures, dependent: :destroy
   accepts_nested_attributes_for :pictures, allow_destroy: true
   has_many :category_items
   has_many :categories, through: :category_items

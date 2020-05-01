@@ -7,7 +7,6 @@ class ItemsController < ApplicationController
     @random = Item.includes(:seller).order("RAND()").limit(3)
   end
 
-  end
 
   def new
     @item = Item.new
@@ -22,6 +21,16 @@ class ItemsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def edit
+    @item = Item.find(params[:id])
+  end
+
+  def update
+    item = Item.find(params[:id])
+    item.update(item_update_params)
+    redirect_to root_path
   end
 
 
@@ -64,14 +73,10 @@ class ItemsController < ApplicationController
     @items = Item.includes(:seller).page(params[:page]).per(20).order("created_at DESC")
   end
 
-  private
 
-  def item_params
-    params.require(:item).permit(:name, :description, :size, :status, :charge, :region, :price, :date, :brand,pictures_attributes: [:image]).merge(seller_id: current_user.id)
-  end
 
   def destroy
-    if @item.delete
+    if @item.destroy
       redirect_to root_path
     else
       redirect_to action: 'sample'
@@ -83,9 +88,22 @@ class ItemsController < ApplicationController
     @items = Item.search(params[:keyword]).page(params[:page]).per(20).order("created_at DESC")
   end
 
-  private
+private
+
+  def item_params
+    params.require(:item).permit(:name, :description, :size, :status, :charge, :region, :price, :date, :brand, pictures_attributes: [:image]).merge(seller_id: current_user.id)
+  end
+
+  def item_update_params
+    params.require(:item).permit(:name, :description, :size, :status, :charge, :region, :price, :date, :brand,[pictures_attributes: [:image, :_destroy, :id]]).merge(seller_id: current_user.id)
+  end
 
   def set_item
     @item = Item.find(params[:id])
   end
+
+end
+
+
+  
 
