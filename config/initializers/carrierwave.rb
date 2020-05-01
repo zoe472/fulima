@@ -13,5 +13,5 @@ CarrierWave.configure do |config|
     }
 
     config.fog_directory  = 'fulima'
-    config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/fulima'
+    config.asset_host = 'https://fulima.s3.amazonaws.com'
 end
