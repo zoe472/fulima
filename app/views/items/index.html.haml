@@ -80,7 +80,7 @@
           .picup-box-lists-list
             =link_to "#" do
               %figure.picup-box-lists-list--image
-                =image_tag 'a007.png'
+                =image_tag item.pictures.first.image.thumb.url
               .picup-box-lists-list--body
                 %h3.picup-box-lists-list--body-name
                   - if item.buyer_id
@@ -110,7 +110,7 @@
           .picup-box-lists-list
             =link_to "#" do
               %figure.picup-box-lists-list--image
-                =image_tag 'a007.png'
+                =image_tag random.pictures.first.image.thumb.url
               .picup-box-lists-list--body
                 %h3.picup-box-lists-list--body-name
                   - if random.buyer_id
