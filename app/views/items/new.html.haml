@@ -23,6 +23,10 @@
                   %input{class:"hidden-field", type: "file", name: "item[pictures_attributes][2][image]", id: "item_pictures_attributes_2_image" }
                   %input{class:"hidden-field", type: "file", name: "item[pictures_attributes][3][image]", id: "item_pictures_attributes_3_image" }
                   %input{class:"hidden-field", type: "file", name: "item[pictures_attributes][4][image]", id: "item_pictures_attributes_4_image" }
+              - if @item.errors.any?
+                %ul
+                  %li.error__messages
+                    = @item.errors.full_messages_for(:pictures).first
                         
           %hr.tw
           .two
