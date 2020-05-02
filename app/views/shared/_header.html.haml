@@ -2,7 +2,7 @@
   .header-Inner
     .header-Inner-main
       %h1.header-Inner-main-icon 
-        =link_to "#" do
+        =link_to root_path do
           = image_tag 'logo.png'
       .header-Inner-main-searchbox  
         = form_with url: search_items_path, local: true, method: :get do |f|
