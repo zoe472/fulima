@@ -9,6 +9,7 @@
             has_many: "%{record}が存在しているので削除できません"
       attributes:
         item:
+          pictures: "出品画像"
           name: "商品名"
           description: "商品の説明"
           size: "サイズ"
