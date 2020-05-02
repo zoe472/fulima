@@ -2,6 +2,8 @@ class Item < ApplicationRecord
   
   validates :name, :description, :size, :charge, :status, :region, :price, :date, :seller_id, presence: true
 
+  validates :price, numericality: { only_integer: true, greater_than: 300, less_than: 9999999 }
+
 
   belongs_to :seller, foreign_key: "seller_id", class_name: "User"
   belongs_to :buyer, foreign_key: "buyer_id", class_name: "User", optional: true
