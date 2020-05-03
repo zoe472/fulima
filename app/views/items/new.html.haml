@@ -11,6 +11,10 @@
               = f.label :image, "出品画像"
               %span.new-mains-main-form-gm-sc-name-img-hi 必須
             %p.new-mains-main-form-gm-sc-name-sy 最大5枚までアップロードできます
+            - if @item.errors.any?
+              %ul
+                %li.error__messages
+                  = @item.errors.full_messages_for(:pictures).first
             .post__drop__box__container
               .prev-content
               .label-content
@@ -23,11 +27,7 @@
                   %input{class:"hidden-field", type: "file", name: "item[pictures_attributes][2][image]", id: "item_pictures_attributes_2_image" }
                   %input{class:"hidden-field", type: "file", name: "item[pictures_attributes][3][image]", id: "item_pictures_attributes_3_image" }
                   %input{class:"hidden-field", type: "file", name: "item[pictures_attributes][4][image]", id: "item_pictures_attributes_4_image" }
-              - if @item.errors.any?
-                %ul
-                  %li.error__messages
-                    = @item.errors.full_messages_for(:pictures).first
-                        
+
           %hr.tw
           .two
             .two-style
@@ -121,39 +121,39 @@
                 .for-style-body-form
                   %label 配送料の負担
                   %span 必須
+                - if @item.errors.any?
+                  %ul
+                    %li.error__messages
+                      = @item.errors.full_messages_for(:charge).first
                 .for-style-body-sele
                   .for-style-body-sele-tara
                     = f.select :charge, [["送料込み（出品者負担）",1],["着払い（購入者負担）", 2]], include_blank: '選択してください'
-                    - if @item.errors.any?
-                      %ul
-                        %li.error__messages
-                          = @item.errors.full_messages_for(:charge).first
                     =image_tag 'caret-down-solid.svg'
             .for-style
               .for-style-body
                 .for-style-body-form
                   %label 発送元の地域
                   %span 必須
+                - if @item.errors.any?
+                  %ul
+                    %li.error__messages
+                      = @item.errors.full_messages_for(:region).first
                 .for-style-body-sele
                   .for-style-body-sele-tara
                     = f.collection_select :region, Prefecture.all, :id, :name, include_blank: '選択してください'
-                    - if @item.errors.any?
-                      %ul
-                        %li.error__messages
-                          = @item.errors.full_messages_for(:region).first
                     =image_tag 'caret-down-solid.svg'
             .for-style
               .for-style-body
                 .for-style-body-form
                   %label 発送までの日数
                   %span 必須
+                - if @item.errors.any?
+                  %ul
+                    %li.error__messages
+                      = @item.errors.full_messages_for(:date).first
                 .for-style-body-sele
                   .for-style-body-sele-tara
                     = f.select :date, [["1~2日で発送", 1], ["2~3日で発送", 2], ["4~7日で発送", 3]], include_blank: '選択してください'
-                    - if @item.errors.any?
-                      %ul
-                        %li.error__messages
-                          = @item.errors.full_messages_for(:date).first
                     =image_tag 'caret-down-solid.svg'
           %hr.tree-a
 
@@ -170,14 +170,14 @@
                   .five-nj-jk-name-sy 
                     %label 販売価格
                     %span.five-nj-jk-name-sy-hh 必須
+                    - if @item.errors.any?
+                      %ul
+                        %li.error__messages
+                          = @item.errors.full_messages_for(:price).first
                   %span.five-nj-jk-name-span ¥
                   .five-nj-jk-name-box
                     .five-nj-jk-name-box-x
                       = f.number_field :price, onKeyUp:"keisan(this)"
-                      - if @item.errors.any?
-                        %ul
-                          %li.error__messages
-                            = @item.errors.full_messages_for(:price).first
               .five-nj-ck
                 .five-nj-ck-data
                   .five-nj-ck-data-div 販売手数料(10%)
