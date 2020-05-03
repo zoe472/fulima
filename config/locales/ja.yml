@@ -13,6 +13,10 @@
           name: "商品名"
           description: "商品の説明"
           size: "サイズ"
+          status: "商品の状態"
+          charge: "配送料の負担"
+          region: "発送元の地域"
+          date: "発送までの日数"
           price: "販売金額"
     date:
       abbr_day_names:
