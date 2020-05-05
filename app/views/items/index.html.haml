@@ -79,7 +79,7 @@
         - if @items.present?
           - @items.each do |item|
             .picup-box-lists-list
-              =link_to sample_item_path(item) do
+              =link_to sample_item_path(item), data: {"turbolinks" => false} do
                 %figure.picup-box-lists-list--image
                   =image_tag item.pictures.first.image.url
                 .picup-box-lists-list--body
@@ -110,7 +110,7 @@
         - if @random.present?
           - @random.each do |random|
             .picup-box-lists-list
-              =link_to sample_item_path(random) do
+              =link_to sample_item_path(random), data: {"turbolinks" => false} do
                 %figure.picup-box-lists-list--image
                   =image_tag random.pictures.first.image.url
                 .picup-box-lists-list--body
