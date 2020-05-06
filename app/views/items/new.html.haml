@@ -100,10 +100,15 @@
                       %ul
                         %li.error__messages
                           = @item.errors.full_messages_for(:size).first
+          %hr.tree-a
+          .for
             .three-jo
-              .three-jo-bo
-                .three-jo-bo-name
-                  .three-jo-bo-name-sele
+              .for-style-body
+                .for-style-body-form
+                  %label 商品の状態
+                  %span 必須
+                .for-style-body-sele
+                  .for-style-body-sele-tara
                     = f.select :status, [["新品、未使用", "新品、未使用"], ["未使用に近い", "未使用に近い"], ["目立った傷や汚れなし", "目立った傷や汚れなし"],["やや傷や汚れあり", "やや傷や汚れあり"], ["傷や汚れあり", "傷や汚れあり"], ["全体的に状態が悪い", "全体的に状態が悪い"]], include_blank: '選択してください'
                  
                     - if @item.errors.any?
@@ -111,9 +116,6 @@
                         %li.error__messages
                           = @item.errors.full_messages_for(:status).first
                     =image_tag 'caret-down-solid.svg'
-          %hr.tree-a
-
-          .for
             %p.for-cb 
               配送について
               =image_tag 'question-circle-regular.svg'
