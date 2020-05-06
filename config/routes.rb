@@ -20,11 +20,15 @@ Rails.application.routes.draw do
       get :sample
       get :sample2
       post :purchace
+      get 'get_category_children', defaults: { format: 'json' }
+      get 'get_category_grandchildren', defaults: { format: 'json' }
     end
     collection do
       get :finish
       get :newindex
       get 'search'
+      get 'get_category_children', defaults: { format: 'json' }
+      get 'get_category_grandchildren', defaults: { format: 'json' }
     end
     resources :comments, only: :create
   end
