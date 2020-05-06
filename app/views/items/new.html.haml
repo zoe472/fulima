@@ -63,18 +63,15 @@
             .three-sy
               .three-sy-body
                 .three-sy-body-cate
-                  = f.label :category_id, "カテゴリー"
+                  = f.label :category, "カテゴリー"
                   - if @item.errors.any?
                     %ul
                       %li.error__messages
-                        = @item.errors.full_messages_for(:category_id).first
+                        = @item.errors.full_messages_for(:category).first
                   %span  必須
                 .three-sy-body-co
                   .three-sy-body-co-cere
-                    %select#parent
-                      %option{value: 0} ---
-                      - Category.where('ancestry IS NULL').each do |cat|
-                        %option{value: "#{cat.id}"} #{cat.name}
+                    = f.select :category, @category_parent_array, {}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'}
                     =image_tag 'caret-down-solid.svg'
             .three-box
               .three-box-body
@@ -84,10 +81,6 @@
                 .three-box-body-two
                   .three-box-body-two-style
                     = f.text_field :brand, placeholder: "例）シャネル"
-                    - if @item.errors.any?
-                      %ul
-                        %li.error__messages
-                          = @item.errors.full_messages_for(:brand).first
             .three-box
               .three-box-body
                 .three-box-body-br
@@ -96,19 +89,17 @@
                 .three-box-body-two
                   .three-box-body-two-style
                     = f.text_field :size, placeholder: "例）S"
-                    - if @item.errors.any?
-                      %ul
-                        %li.error__messages
-                          = @item.errors.full_messages_for(:size).first
             .three-jo
               .three-jo-bo
+                %label 商品の状態
+                %span 必須
+                - if @item.errors.any?
+                  %ul
+                    %li.error__messages
+                      = @item.errors.full_messages_for(:status).first
                 .three-jo-bo-name
                   .three-jo-bo-name-sele
                     = f.select :status, [["新品、未使用", 1], ["未使用に近い", 2], ["目立った傷や汚れなし", 3],["やや傷や汚れあり", 4], ["傷や汚れあり", 5], ["全体的に状態が悪い", 6]], include_blank: '選択してください'
-                    - if @item.errors.any?
-                      %ul
-                        %li.error__messages
-                          = @item.errors.full_messages_for(:status).first
                     =image_tag 'caret-down-solid.svg'
           %hr.tree-a
 
