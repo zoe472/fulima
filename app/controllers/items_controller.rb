@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:sample, :sample2, :purchace, :destroy, :edit, :update]
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy, :purchace]
  
   
   def index
@@ -102,7 +103,6 @@ private
   def set_item
     @item = Item.find(params[:id])
   end
-
 end
 
 

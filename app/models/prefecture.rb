@@ -16,5 +16,6 @@ class Prefecture < ActiveHash::Base
       {id: '福岡県', name: '福岡県'}, {id: '佐賀県', name: '佐賀県'}, {id: '長崎県', name: '長崎県'},
       {id: '熊本県', name: '熊本県'}, {id: '大分県', name: '大分県'}, {id: '宮崎県', name: '宮崎県'},
       {id: '鹿児島県', name: '鹿児島県'}, {id: '沖縄県', name: '沖縄県'}
+
   ]
 end
