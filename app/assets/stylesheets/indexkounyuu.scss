@@ -28,7 +28,7 @@ body{
     width: 100%;
     &-main{
       position: relative;
-      height: 2138px;
+      height: 2300px;
       &-form{
         height: 2138px;
         vertical-align: baseline;
@@ -332,7 +332,6 @@ hr{
 .three{
   padding: 40px;
   width: 620px;
-  height: 361px;
 p{
   color: rgb(136, 136, 136);
   font-size: 14px;
@@ -344,7 +343,6 @@ p{
 &-sy{
   margin-top: 32px;
   &-body{
-    height: 83px;
     &-cate{
       align-items: center;
       display: flex;
@@ -466,6 +464,22 @@ p{
     height: 64px;
     &-bo{
       height: 64px;
+      label {
+        font-weight: 600;
+      }
+      span {
+        margin-left: 8px;
+        font-family: Arial,游ゴシック体,YuGothic,メイリオ,Meiryo,sans-serif;
+        font-size: 12px;
+        padding: 0 4px;
+        background-color: #ff0211;
+        color: #fff;
+        border-radius: 2px;
+        display: inline-block;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 1.4em;
+      }
       &-name{
         align-items: center;
         display: inline-flex;
@@ -609,7 +623,6 @@ p{
   }
   &-nj{
     margin-bottom: 40px;
-    height: 187px;
     &-jk{
       padding: 12px 0px;
       padding-top: 0px;

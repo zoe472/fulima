@@ -5,10 +5,10 @@ class Item < ApplicationRecord
   has_many :comments
   has_many :pictures, dependent: :destroy
   accepts_nested_attributes_for :pictures, allow_destroy: true
-  has_many :category_items
+  has_many :category_items, dependent: :destroy
   has_many :categories, through: :category_items
 
-  validates :name, :description, :price, :seller_id, presence: true
+  validates :name, :description, :price, :category, :seller_id, presence: true
   validates :status, :charge, :region, :date, presence: { message: 'を選択してください' }
   validates :price, numericality: { only_integer: true, greater_than: 300, less_than: 9999999 }
   validates_associated :pictures

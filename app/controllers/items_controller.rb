@@ -13,10 +13,12 @@ class ItemsController < ApplicationController
     @item = Item.new
     @item.pictures.new
     @todohuken = Prefecture.all
+    @category_parent_array = ["---"] + Category.where(ancestry: nil).pluck(:name)
   end
 
   def create
     @item = Item.new(item_params)
+    @category_parent_array = ["---"] + Category.where(ancestry: nil).pluck(:name)
     if @item.save
       redirect_to root_path
     else
@@ -25,6 +27,24 @@ class ItemsController < ApplicationController
   end
 
   def edit
+  end
+
+  def get_category_children
+    respond_to do |format|
+      format.html
+      format.json do
+        @children = Category.find_by(name: params[:parent_id]).children
+      end
+    end
+  end
+
+  def get_category_grandchildren
+    respond_to do |format| 
+      format.html
+      format.json do
+        @grandchildren = Category.find("#{params[:child_id]}").children
+      end
+    end
   end
 
   def update
@@ -93,7 +113,7 @@ class ItemsController < ApplicationController
 private
 
   def item_params
-    params.require(:item).permit(:name, :description, :size, :status, :charge, :region, :price, :date, :brand, pictures_attributes: [:image]).merge(seller_id: current_user.id)
+    params.require(:item).permit(:name, :description, :size, :status, :charge, :region, :price, :date, :brand, :category, pictures_attributes: [:image]).merge(seller_id: current_user.id)
   end
 
   def item_update_params
