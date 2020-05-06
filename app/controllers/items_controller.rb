@@ -13,18 +13,12 @@ class ItemsController < ApplicationController
     @item = Item.new
     @item.pictures.new
     @todohuken = Prefecture.all
-    @category_parent_array = ["---"]
-    Category.where(ancestry: nil).each do |parent|
-      @category_parent_array << parent.name
-    end
+    @category_parent_array = ["---"] + Category.where(ancestry: nil).pluck(:name)
   end
 
   def create
     @item = Item.new(item_params)
-    @category_parent_array = ["---"]
-    Category.where(ancestry: nil).each do |parent|
-      @category_parent_array << parent.name
-    end
+    @category_parent_array = ["---"] + Category.where(ancestry: nil).pluck(:name)
     if @item.save
       redirect_to root_path
     else
