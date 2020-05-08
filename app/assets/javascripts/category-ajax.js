@@ -11,7 +11,7 @@ $(document).on('turbolinks:load', function(){
                           <option value="---" data-category="---">---</option>
                           ${insertHTML}
                           </select>
-                          <img src ="/assets/caret-down-solid.svg">
+                          <img src="/images/caret-down-solid.svg"/>
                         </div>
                       </div>`;
     $('.three-sy-body').append(childSelectHtml);
@@ -24,7 +24,7 @@ $(document).on('turbolinks:load', function(){
                                 <option value="---" data-category="---">---</option>
                                 ${insertHTML}
                                 </select>
-                                <img src ="/assets/caret-down-solid.svg">
+                                <img src="/images/caret-down-solid.svg"/>
                               </div>
                             </div>`;
     $('.three-sy-body').append(grandchildSelectHtml);
