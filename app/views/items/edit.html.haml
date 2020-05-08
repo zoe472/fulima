@@ -65,18 +65,15 @@
             .three-sy
               .three-sy-body
                 .three-sy-body-cate
-                  = f.label :category_id, "カテゴリー"
+                  = f.label :category, "カテゴリー"
                   - if @item.errors.any?
                     %ul
                       %li.error__messages
-                        = @item.errors.full_messages_for(:category_id).first
+                        = @item.errors.full_messages_for(:category).first
                   %span  必須
                 .three-sy-body-co
                   .three-sy-body-co-cere
-                    %select#parent
-                      %option{value: 0} ---
-                      - Category.where('ancestry IS NULL').each do |cat|
-                        %option{value: "#{cat.id}"} #{cat.name}
+                    = f.select :category, @category_parent_array, {}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'}
                     =image_tag 'caret-down-solid.svg'
             .three-box
               .three-box-body
@@ -86,10 +83,6 @@
                 .three-box-body-two
                   .three-box-body-two-style
                     = f.text_field :brand, placeholder: "例）シャネル"
-                    - if @item.errors.any?
-                      %ul
-                        %li.error__messages
-                          = @item.errors.full_messages_for(:brand).first
             .three-box
               .three-box-body
                 .three-box-body-br
@@ -98,19 +91,17 @@
                 .three-box-body-two
                   .three-box-body-two-style
                     = f.text_field :size, placeholder: "例）S"
-                    - if @item.errors.any?
-                      %ul
-                        %li.error__messages
-                          = @item.errors.full_messages_for(:size).first
             .three-jo
               .three-jo-bo
+                %label 商品の状態
+                %span 必須
+                - if @item.errors.any?
+                  %ul
+                    %li.error__messages
+                      = @item.errors.full_messages_for(:status).first
                 .three-jo-bo-name
                   .three-jo-bo-name-sele
-                    = f.select :status, [["選択してください",0],["新品、未使用", 1], ["未使用に近い", 2], ["目立った傷や汚れなし", 3],["やや傷や汚れあり", 4], ["傷や汚れあり", 5], ["全体的に状態が悪い", 6]]
-                    - if @item.errors.any?
-                      %ul
-                        %li.error__messages
-                          = @item.errors.full_messages_for(:status).first
+                    = f.select :status, [["新品、未使用", "新品、未使用"], ["未使用に近い", "未使用に近い"], ["目立った傷や汚れなし", "目立った傷や汚れなし"],["やや傷や汚れあり", "やや傷や汚れあり"], ["傷や汚れあり", "傷や汚れあり"], ["全体的に状態が悪い", "全体的に状態が悪い"]], include_blank: '選択してください'
                     =image_tag 'caret-down-solid.svg'
           %hr.tree-a
 
@@ -123,9 +114,13 @@
                 .for-style-body-form
                   %label 配送料の負担
                   %span 必須
+                - if @item.errors.any?
+                  %ul
+                    %li.error__messages
+                      = @item.errors.full_messages_for(:charge).first
                 .for-style-body-sele
                   .for-style-body-sele-tara
-                    = f.select :charge, [["選択してください",0],["送料込み（出品者負担）",1],["着払い（購入者負担）", 2]]
+                    = f.select :charge, [["送料込み（出品者負担）","送料込み（出品者負担）"],["着払い（購入者負担）", "着払い（購入者負担）"]], include_blank: '選択してください'
                     - if @item.errors.any?
                       %ul
                         %li.error__messages
@@ -136,26 +131,31 @@
                 .for-style-body-form
                   %label 発送元の地域
                   %span 必須
+                - if @item.errors.any?
+                  %ul
+                    %li.error__messages
+                      = @item.errors.full_messages_for(:region).first
                 .for-style-body-sele
                   .for-style-body-sele-tara
-                    = f.collection_select :region, Prefecture.all, :id, :name
-                    - if @item.errors.any?
-                      %ul
-                        %li.error__messages
-                          = @item.errors.full_messages_for(:region).first
+                    = f.collection_select :region, Prefecture.all, :id, :name, include_blank: '選択してください'
                     =image_tag 'caret-down-solid.svg'
             .for-style
               .for-style-body
                 .for-style-body-form
                   %label 発送までの日数
                   %span 必須
+                - if @item.errors.any?
+                  %ul
+                    %li.error__messages
+                      = @item.errors.full_messages_for(:date).first
                 .for-style-body-sele
                   .for-style-body-sele-tara
-                    = f.select :date, [["選択してください",0],["1~2日で発送", 1], ["2~3日で発送", 2], ["4~7日で発送", 3]]
+                    = f.select :date, [["１~２日で発送", "１~２日で発送"],["２~３日で発送", "２~３日で発送"],["４~７日で発送", "４~７日で発送"]], include_blank: '選択してください'
                     - if @item.errors.any?
                       %ul
                         %li.error__messages
                           = @item.errors.full_messages_for(:date).first
+
                     =image_tag 'caret-down-solid.svg'
           %hr.tree-a
 
@@ -172,14 +172,14 @@
                   .five-nj-jk-name-sy 
                     %label 販売価格
                     %span.five-nj-jk-name-sy-hh 必須
+                    - if @item.errors.any?
+                      %ul
+                        %li.error__messages
+                          = @item.errors.full_messages_for(:price).first
                   %span.five-nj-jk-name-span ¥
                   .five-nj-jk-name-box
                     .five-nj-jk-name-box-x
                       = f.number_field :price, onKeyUp:"keisan(this)"
-                      - if @item.errors.any?
-                        %ul
-                          %li.error__messages
-                            = @item.errors.full_messages_for(:price).first
               .five-nj-ck
                 .five-nj-ck-data
                   .five-nj-ck-data-div 販売手数料(10%)
@@ -191,7 +191,7 @@
                 %span#profit 
                   ー
               .five-nj-syu
-                =f.submit "更新する",class:'button'
+                =f.submit "変更する",class:'button'
                 =link_to "/" do
                   もどる
               %p.five-nj-p 禁止されている行為および出品物を必ずご確認ください。偽ブランド品や盗品物などの販売は犯罪であり、法律により処罰される可能性があります。 また、出品をもちまして加盟店規約に同意したことになります。

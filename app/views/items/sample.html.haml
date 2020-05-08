@@ -42,10 +42,9 @@
                 %tr
                   %th カテゴリー
                   %td 
-                    - @categry.each do |categry|
-                      = link_to "#", class:"link-share link-color" do
-                        = categry
-                      %br
+                    = link_to "#", class:"link-share link-color" do
+                      = @item.category
+                    %br
                 %tr
                   - if @item.brand.present?
                     %th ブランド

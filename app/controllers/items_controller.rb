@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:sample, :sample2, :purchace, :destroy, :edit, :update]
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy, :purchace]
+  before_action :set_category, only: [:new, :create, :edit, :update]
  
   
   def index
@@ -13,12 +14,12 @@ class ItemsController < ApplicationController
     @item = Item.new
     @item.pictures.new
     @todohuken = Prefecture.all
-    @category_parent_array = ["---"] + Category.where(ancestry: nil).pluck(:name)
+    
   end
 
   def create
     @item = Item.new(item_params)
-    @category_parent_array = ["---"] + Category.where(ancestry: nil).pluck(:name)
+    binding.pry
     if @item.save
       redirect_to root_path
     else
@@ -113,15 +114,19 @@ class ItemsController < ApplicationController
 private
 
   def item_params
-    params.require(:item).permit(:name, :description, :size, :status, :charge, :region, :price, :date, :brand, :category, pictures_attributes: [:image]).merge(seller_id: current_user.id)
+    params.require(:item).permit(:name, :description, :size, :status, :charge, :region, :date, :price, :brand, :category, pictures_attributes: [:image]).merge(seller_id: current_user.id)
   end
 
   def item_update_params
-    params.require(:item).permit(:name, :description, :size, :status, :charge, :region, :price, :date, :brand,[pictures_attributes: [:image, :_destroy, :id]]).merge(seller_id: current_user.id)
+    params.require(:item).permit(:name, :description, :size, :status, :charge, :region, :date, :price, :category, :brand,[pictures_attributes: [:image, :_destroy, :id]]).merge(seller_id: current_user.id)
   end
 
   def set_item
     @item = Item.find(params[:id])
+  end
+
+  def set_category
+    @category_parent_array = ["---"] + Category.where(ancestry: nil).pluck(:name)
   end
 end
 

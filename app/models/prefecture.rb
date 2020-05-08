@@ -1,6 +1,6 @@
 class Prefecture < ActiveHash::Base
   self.data = [
-      {id: '選択してください', name: '選択してください'},{id: '北海道', name: '北海道'}, {id: '青森県', name: '青森県'}, {id: '岩手県', name: '岩手県'},
+      {id: '北海道', name: '北海道'}, {id: '青森県', name: '青森県'}, {id: '岩手県', name: '岩手県'},
       {id: '宮城県', name: '宮城県'}, {id: '秋田県', name: '秋田県'}, {id: '山形県', name: '山形県'},
       {id: '福島県', name: '福島県'}, {id: '茨城県', name: '茨城県'}, {id: '栃木県', name: '栃木県'},
       {id: '群馬県', name: '群馬県'}, {id: '埼玉県', name: '埼玉県'}, {id: '千葉県', name: '千葉県'},
