@@ -66,10 +66,10 @@
               .three-sy-body
                 .three-sy-body-cate
                   = f.label :category, "カテゴリー"
-                  - if @item.errors.any?
-                    %ul
-                      %li.error__messages
-                        = @item.errors.full_messages_for(:category).first
+                - if @item.errors.any?
+                  %ul
+                    %li.error__messages
+                      = @item.errors.full_messages_for(:category).first
                   %span  必須
                 .three-sy-body-co
                   .three-sy-body-co-cere
