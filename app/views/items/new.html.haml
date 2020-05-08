@@ -64,11 +64,11 @@
               .three-sy-body
                 .three-sy-body-cate
                   = f.label :category, "カテゴリー"
-                  - if @item.errors.any?
-                    %ul
-                      %li.error__messages
-                        = @item.errors.full_messages_for(:category).first
                   %span  必須
+                - if @item.errors.any?
+                  %ul
+                    %li.error__messages
+                      = @item.errors.full_messages_for(:category).first
                 .three-sy-body-co
                   .three-sy-body-co-cere
                     = f.select :category, @category_parent_array, {}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'}
@@ -119,10 +119,6 @@
                 .for-style-body-sele
                   .for-style-body-sele-tara
                     = f.select :charge, [["送料込み（出品者負担）","送料込み（出品者負担）"],["着払い（購入者負担）", "着払い（購入者負担）"]], include_blank: '選択してください'
-                    - if @item.errors.any?
-                      %ul
-                        %li.error__messages
-                          = @item.errors.full_messages_for(:charge).first
                     =image_tag 'caret-down-solid.svg'
             .for-style
               .for-style-body
@@ -149,12 +145,6 @@
                 .for-style-body-sele
                   .for-style-body-sele-tara
                     = f.select :date, [["１~２日で発送", "１~２日で発送"],["２~３日で発送", "２~３日で発送"],["４~７日で発送", "４~７日で発送"]], include_blank: '選択してください'
-                    
-                    - if @item.errors.any?
-                      %ul
-                        %li.error__messages
-                          = @item.errors.full_messages_for(:date).first
-
                     =image_tag 'caret-down-solid.svg'
           %hr.tree-a
 
